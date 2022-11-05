@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ServicesComponent } from './services/services.component';
 import { PartialsModule } from '../partials/partials.module';
+import { CreateSurveyComponent } from './create-survey/create-survey.component';
+import { ViewSurveyComponent } from './view-survey/view-survey.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { PartialsModule } from '../partials/partials.module';
     ContactComponent,
     HomeComponent,
     ProductsComponent,
-    ServicesComponent
+    ServicesComponent,
+    CreateSurveyComponent,
+    ViewSurveyComponent
   ],
   exports: [
     AboutComponent,
