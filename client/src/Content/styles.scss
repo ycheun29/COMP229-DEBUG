@@ -18,13 +18,13 @@
     margin-top: -5px;
   }
 }
-@each $name, $color in (default, #777), (primary, #428bca), (success, #5cb85c),
-  (danger, #d9534f), (warning, #f0ad4e), (info, #5bc0de), (bdc, #29527a)
+@each $name, $color in (default, #777), (primary, #D98A60), (success, #33BA79),
+  (danger, #DC7878), (warning, #E5E174), (info, #64B5FF), (bdc, #29527a)
 {
   .callout-#{$name} {
     border-left-color: $color;
-    h4 {
-      color: $color;
-    }
+  }
+  .callout-bg-#{$name} {
+    background-color: $color;
   }
 }
