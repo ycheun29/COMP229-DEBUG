@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #d98a60 !important;
+  border: #d98a60;
+}
+.nav-link-primary {
+  background-color: #d98a60 !important;
+}
