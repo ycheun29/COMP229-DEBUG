@@ -9,6 +9,7 @@ import { ServicesComponent } from './services/services.component';
 import { PartialsModule } from '../partials/partials.module';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { ViewSurveyComponent } from './view-survey/view-survey.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ViewSurveyComponent } from './view-survey/view-survey.component';
     ProductsComponent,
     ServicesComponent,
     CreateSurveyComponent,
-    ViewSurveyComponent
+    ViewSurveyComponent,
+    LoginComponent
   ],
   exports: [
     AboutComponent,

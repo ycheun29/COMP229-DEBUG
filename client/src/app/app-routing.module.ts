@@ -9,6 +9,7 @@ import { BookStoreComponent } from './book-store/book-store.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CreateSurveyComponent } from './pages/create-survey/create-survey.component';
 import { ViewSurveyComponent } from './pages/view-survey/view-survey.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
@@ -38,6 +39,11 @@ const routes: Routes = [
     path: 'view-survey',
     component: ViewSurveyComponent,
     data: { title: 'View Survey' },
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: { title: 'Login' },
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
