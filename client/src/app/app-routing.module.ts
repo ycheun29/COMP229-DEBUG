@@ -10,6 +10,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { CreateSurveyComponent } from './pages/create-survey/create-survey.component';
 import { ViewSurveyComponent } from './pages/view-survey/view-survey.component';
 import { LoginComponent } from './pages/login/login.component';
+import {RegisterComponent} from './pages/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
@@ -46,6 +47,12 @@ const routes: Routes = [
     data: { title: 'Login' },
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {title: 'Register'},
+  }
+
 ];
 
 @NgModule({
