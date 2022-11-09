@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router'
+import { Survey } from 'src/app/model/survey.model';
+import { SurveyRepository } from 'src/app/model/survey.repository';
 
 @Component({
   selector: 'app-view-my-survey',
   templateUrl: './view-my-survey.component.html',
   styleUrls: ['./view-my-survey.component.css']
 })
-export class ViewMySurveyComponent implements OnInit {
+export class ViewMySurveyComponent {
   surveyName: String;
   creator: String;
   date: String;
 
-  constructor(private route: ActivatedRoute) { }
+  public selectedCreator = 'admin';
+  
+  constructor(private repository: SurveyRepository) { }
 
-  ngOnInit(): void {
-    this.surveyName = this.route.snapshot.data.surveyName;
-    this.creator = this.route.snapshot.data.creator;
-    this.date = this.route.snapshot.data.creator;
+  get surveys(): Survey[]
+  {
+    return this.repository.getSurveys(this.selectedCreator)
   }
+
+  get creators(): string[]
+  {
+    return this.repository.getCreators();
+  } 
 
 }

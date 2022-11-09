@@ -11,10 +11,10 @@
     <th class="col-1"></th>
     <th class="col-1"></th>
 </tr>
-        <tr>
-            <td class="col-7">COVID-19 Vaccination Coverage Survey</td>
-            <td class="col-3">Chan</td>
-            <td class="col-3">Open</td>
+<tr *ngFor='let survey of surveys'>
+    <td class="col-7">{{ survey.surveyName }}</td>
+    <td class="col-3">{{ survey.creator }}</td>
+    <td class="col-3">{{ survey.status }}</td>
             <td class="col-1">
                 <a href="/surveyResult">
                     <i class="fas f-2xl fa-chart-pie text-sucess"></i>
