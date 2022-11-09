@@ -1,4 +1,4 @@
-<div class="container mb-5">
+<div class="container mb-6">
     <div class="callout callout-primary">
         <div class="card-header text-center bg-white"><h5>All Survey</h5></div>
         <div class="card-body">
@@ -11,10 +11,10 @@
                     <th class="col-1"></th>
                     <th class="col-1"></th>
                 </tr>
-                <tr>
-                    <td class="col-7">COVID-19 Vaccination Coverage Survey</td>
-                    <td class="col-3">Chan</td>
-                    <td class="col-3">Open</td>
+                <tr *ngFor='let survey of surveys'>
+                    <td class="col-7">{{ survey.surveyName }}</td>
+                    <td class="col-3">{{ survey.creator }}</td>
+                    <td class="col-3">{{ survey.status }}</td>
                     <td class="col-1"></td>
                     <td class="col-1">
                         <a href="/editSurvey">
@@ -24,6 +24,9 @@
                     <td class="col-1"></td>            
                 </tr>
             </table>
+        
+
         </div>
+        
     </div>    
 </div>

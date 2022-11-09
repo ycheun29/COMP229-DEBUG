@@ -16,6 +16,11 @@ export class SurveyRepository
     });
   }
 
+  getAllSurveys(): Survey[]
+  {
+    return this.surveys;
+  }
+
   getSurveys(creator: string = null): Survey[]
   {
     return this.surveys
