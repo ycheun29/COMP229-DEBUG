@@ -1,11 +1,7 @@
-export class Survery {
-  id: string;
-  surveyName: string;
-  description: string;
-  createdBy: string;
-  createdDate: Date;
-  status: string;
-  questions: QuestionSchema[];
+export class Responses {
+  responsedId: string;
+  submitedDate: Date;
+  value: string;
 }
 
 export class QuestionSchema {
@@ -15,11 +11,29 @@ export class QuestionSchema {
   responses: Responses[];
 }
 
-export class Responses {
-  responsedId: string;
-  submitedDate: Date;
-  value: string;
+export class Survey {
+  _id: number;
+    surveyName: string;
+    description: string;
+    creator: string;
+    createdDate: Date;
+    status: string;
+    questions: QuestionSchema[];
+    
+  constructor(_id: number,
+    surveyName: string,
+    description: string,
+    creator: string,
+    createdDate: Date,
+    status: string,
+    questions: QuestionSchema[]
+    ){}
+  
 }
+
+
+
+
 
 export class option {
   sequence: number;

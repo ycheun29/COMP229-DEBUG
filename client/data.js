@@ -14,7 +14,7 @@ module.exports = function () {
         status: "Open",
         surveyName: "First Survey Name",
         description: "This is survey description",
-        createBy: "admin",
+        creator: "admin",
         createDate: new Date("2022-01-02"),
         questions: [
           { questionId: 1, type: "text", value: "Questions 1 ?" },

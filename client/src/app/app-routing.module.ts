@@ -5,12 +5,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ServicesComponent } from './pages/services/services.component';
-import { BookStoreComponent } from './book-store/book-store.component';
+import { SurveySiteComponent } from './survey-site/survey-site.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CreateSurveyComponent } from './pages/create-survey/create-survey.component';
 import { ViewSurveyComponent } from './pages/view-survey/view-survey.component';
 import { LoginComponent } from './pages/login/login.component';
-import {RegisterComponent} from './pages/register/register.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
@@ -26,9 +26,9 @@ const routes: Routes = [
     data: { title: 'Services' },
   },
   {
-    path: 'book-list',
-    component: BookStoreComponent,
-    data: { title: 'Book Store' },
+    path: 'survey-list',
+    component: SurveySiteComponent,
+    data: { title: 'Survey Site' },
   },
   { path: 'contact', component: ContactComponent, data: { title: 'Contact' } },
   {

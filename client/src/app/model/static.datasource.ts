@@ -1,31 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Book } from './book.model';
+import { Survey } from './survey.model';
 import { Observable, from } from 'rxjs';
 
 @Injectable()
 export class StaticDataSource
 {
-  private books: Book[] =
+  private surveys: Survey[] =
   [
-    new Book(1, 'Book 1', 'Author 1', 'Year 1', 'Short Description 1' , 10),
-    new Book(2, 'Book 2', 'Author 1', 'Year 2', 'Short Description 2' , 10),
-    new Book(3, 'Book 3', 'Author 1', 'Year 3', 'Short Description 3' , 10),
-    new Book(4, 'Book 4', 'Author 1', 'Year 4', 'Short Description 4' , 10),
-    new Book(5, 'Book 5', 'Author 2', 'Year 6', 'Short Description 6' , 10),
-    new Book(6, 'Book 6', 'Author 2', 'Year 6', 'Short Description 6' , 10),
-    new Book(7, 'Book 7', 'Author 2', 'Year 7', 'Short Description 7' , 10),
-    new Book(8, 'Book 8', 'Author 2', 'Year 8', 'Short Description 8' , 10),
-    new Book(9, 'Book 9', 'Author 3', 'Year 9', 'Short Description 9' , 10),
-    new Book(10, 'Book 10', 'Author 3', 'Year 10', 'Short Description 10' , 10),
-    new Book(11, 'Book 11', 'Author 3', 'Year 11', 'Short Description 11' , 10),
-    new Book(12, 'Book 12', 'Author 4', 'Year 12', 'Short Description 12' , 10),
-    new Book(13, 'Book 13', 'Author 4', 'Year 13', 'Short Description 13' , 10),
-    new Book(14, 'Book 14', 'Author 4', 'Year 14', 'Short Description 14' , 10),
-    new Book(15, 'Book 15', 'Author 4', 'Year 15', 'Short Description 15' , 10),
+    new Survey(1, 'Survey 1', 'DESC 1', 'Creator 1', new Date("2022-03-25") , 'Open', []),
+    new Survey(2, 'Survey 2', 'DESC 2', 'Creator 2', new Date("2022-04-25") , 'Open', []),
+    new Survey(3, 'Survey 3', 'DESC 3', 'Creator 3', new Date("2022-05-25") , 'Open', []),
+    new Survey(4, 'Survey 4', 'DESC 4', 'Creator 4', new Date("2022-06-25") , 'Open', []),
+    new Survey(5, 'Survey 5', 'DESC 5', 'Creator 5', new Date("2022-07-25") , 'Open', []),
+    new Survey(6, 'Survey 6', 'DESC 6', 'Creator 6', new Date("2022-08-25") , 'Open', []),
+    new Survey(7, 'Survey 7', 'DESC 7', 'Creator 7', new Date("2022-09-25") , 'Open', []),
+    new Survey(8, 'Survey 8', 'DESC 8', 'Creator 8', new Date("2022-10-25") , 'Open', []),
+    new Survey(9, 'Survey 9', 'DESC 9', 'Creator 9', new Date("2022-11-25") , 'Open', []),
+
   ];
 
-  getBooks(): Observable<Book[]>
+  getSurveys(): Observable<Survey[]>
   {
-    return from([this.books]);
+    return from([this.surveys]);
   }
 }
