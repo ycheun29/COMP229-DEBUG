@@ -50,9 +50,13 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
-    data: {title: 'Register'},
-  }
-
+    data: { title: 'Register' },
+  },
+  {
+    path: 'survey/:mode/:id',
+    component: CreateSurveyComponent,
+    data: { title: 'Edit' },
+  },
 ];
 
 @NgModule({
