@@ -22,10 +22,7 @@ module.exports = function () {
             questionId: 2,
             type: "select",
             value: "Questions 2 ?",
-            options: [
-              { seq: 1, value: "Option 1" },
-              { seq: 2, value: "Option 2" },
-            ],
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
         ],
         responses: [
@@ -53,10 +50,7 @@ module.exports = function () {
             questionId: 2,
             type: "select",
             value: "Questions 2 ?",
-            options: [
-              { seq: 1, value: "Option 1" },
-              { seq: 2, value: "Option 2" },
-            ],
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
         ],
         responses: [
@@ -84,10 +78,7 @@ module.exports = function () {
             questionId: 2,
             type: "select",
             value: "Questions 2 ?",
-            options: [
-              { seq: 1, value: "Option 1" },
-              { seq: 2, value: "Option 2" },
-            ],
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
         ],
         responses: [
@@ -115,10 +106,7 @@ module.exports = function () {
             questionId: 2,
             type: "select",
             value: "Questions 2 ?",
-            options: [
-              { seq: 1, value: "Option 1" },
-              { seq: 2, value: "Option 2" },
-            ],
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
         ],
         responses: [

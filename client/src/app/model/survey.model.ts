@@ -54,8 +54,7 @@ export class ResponseDetail {
 }
 
 export class Option {
-  sequence: number;
   value: string;
 
-  constructor(sequence?: number, value?: string) {}
+  constructor(value?: string) {}
 }
