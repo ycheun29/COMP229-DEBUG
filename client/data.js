@@ -11,7 +11,7 @@ module.exports = function () {
     "survey-list": [
       {
         _id: 1,
-        status: "Close",
+        status: "Open",
         surveyName: "COVID-19 Vaccination Survey",
         description:
           "The aims is to record the student COVID-19 vaccination status.",
@@ -96,8 +96,8 @@ module.exports = function () {
       },
       {
         _id: 3,
-        status: "Draft",
-        surveyName: "Englisg Level Survey",
+        status: "Open",
+        surveyName: "English Level Survey",
         description: "The aims is to record the student english level.",
         creator: "admin2",
         createDate: new Date("2022-10-10"),
