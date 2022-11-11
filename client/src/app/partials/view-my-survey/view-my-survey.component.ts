@@ -28,4 +28,9 @@ export class ViewMySurveyComponent {
   editSurvey(id: number): void {
     this.router.navigateByUrl('/survey/edit/' + id);
   }
+
+  deleteSurvey(id: number): void {
+    const index = this.repository.getAllSurveys().findIndex((l) => l._id == id);
+    this.repository.getAllSurveys().splice(index, 1);
+  }
 }
