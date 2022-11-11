@@ -17,10 +17,10 @@ module.exports = function () {
         creator: "admin",
         createDate: new Date("2022-01-02"),
         questions: [
-          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
           {
             questionId: 2,
-            type: "select",
+            questionType: "select",
             value: "Questions 2 ?",
             options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
@@ -45,10 +45,10 @@ module.exports = function () {
         creator: "admin",
         createDate: new Date("2022-01-02"),
         questions: [
-          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
           {
             questionId: 2,
-            type: "select",
+            questionType: "select",
             value: "Questions 2 ?",
             options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
@@ -73,10 +73,10 @@ module.exports = function () {
         creator: "admin2",
         createDate: new Date("2022-01-02"),
         questions: [
-          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
           {
             questionId: 2,
-            type: "select",
+            questionType: "select",
             value: "Questions 2 ?",
             options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
@@ -101,10 +101,10 @@ module.exports = function () {
         creator: "admin2",
         createDate: new Date("2022-01-02"),
         questions: [
-          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
           {
             questionId: 2,
-            type: "select",
+            questionType: "select",
             value: "Questions 2 ?",
             options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
