@@ -11,156 +11,128 @@ module.exports = function () {
     "survey-list": [
       {
         _id: 1,
-        status: "Open",
-        surveyName: "First Survey Name",
-        description: "This is survey description",
+        status: "Close",
+        surveyName: "COVID-19 Vaccination Survey",
+        description:
+          "The aims is to record the student COVID-19 vaccination status.",
         creator: "admin",
-        createDate: new Date("2022-01-02"),
+        createDate: new Date("2022-10-01"),
         questions: [
-          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
+          {
+            questionId: 1,
+            questionType: "text",
+            value: "What is your student ID?",
+          },
           {
             questionId: 2,
             questionType: "select",
-            value: "Questions 2 ?",
-            options: [{ value: "Option 1" }, { value: "Option 2" }],
+            value: "Which type of vaccine have you take?",
+            options: [
+              { value: "Moderna" },
+              { value: "Pfizer/BioNTech" },
+              { value: "Novavax" },
+              { value: "AstraZeneca" },
+            ],
           },
         ],
         responses: [
           {
             responseId: 1,
-            submitDate: new Date("2022-01-16"),
+            submitDate: new Date("2022-10-03"),
             responseDetails: [
-              { questionId: 1, value: "This is answer 1" },
-              { questionId: 2, value: "Option 2" },
+              { questionId: 1, value: "300000001" },
+              { questionId: 2, value: "Moderna" },
+            ],
+          },
+          {
+            responseId: 2,
+            submitDate: new Date("2022-10-05"),
+            responseDetails: [
+              { questionId: 1, value: "300000002" },
+              { questionId: 2, value: "AstraZeneca" },
             ],
           },
         ],
       },
-
       {
         _id: 2,
         status: "Open",
-        surveyName: "Secod Survey Name",
-        description: "This is survey description",
+        surveyName: "MonkeyPox Vaccination Survey",
+        description:
+          "The aims is to record the student MonkeyPox vaccination status.",
         creator: "admin",
-        createDate: new Date("2022-01-02"),
+        createDate: new Date("2022-10-10"),
         questions: [
-          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
+          {
+            questionId: 1,
+            questionType: "text",
+            value: "What is your student ID?",
+          },
           {
             questionId: 2,
             questionType: "select",
-            value: "Questions 2 ?",
-            options: [{ value: "Option 1" }, { value: "Option 2" }],
+            value: "Which type of vaccine have you take?",
+            options: [{ value: "JYNNEOS" }, { value: "ACAM2000" }],
           },
         ],
         responses: [
           {
             responseId: 1,
-            submitDate: new Date("2022-01-16"),
+            submitDate: new Date("2022-10-12"),
             responseDetails: [
-              { questionId: 1, value: "This is answer 1" },
-              { questionId: 2, value: "Option 2" },
+              { questionId: 1, value: "300000011" },
+              { questionId: 2, value: "JYNNEOS" },
+            ],
+          },
+          {
+            responseId: 2,
+            submitDate: new Date("2022-10-13"),
+            responseDetails: [
+              { questionId: 1, value: "300000012" },
+              { questionId: 2, value: "ACAM2000" },
             ],
           },
         ],
       },
-
       {
         _id: 3,
-        status: "Open",
-        surveyName: "Third Survey Name",
-        description: "This is survey description",
+        status: "Draft",
+        surveyName: "Englisg Level Survey",
+        description: "The aims is to record the student english level.",
         creator: "admin2",
-        createDate: new Date("2022-01-02"),
+        createDate: new Date("2022-10-10"),
         questions: [
-          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
+          {
+            questionId: 1,
+            questionType: "text",
+            value: "What is your student ID?",
+          },
           {
             questionId: 2,
             questionType: "select",
-            value: "Questions 2 ?",
-            options: [{ value: "Option 1" }, { value: "Option 2" }],
-          },
-        ],
-        responses: [
-          {
-            responseId: 1,
-            submitDate: new Date("2022-01-16"),
-            responses: [
-              { questionId: 1, value: "This is answer 1" },
-              { questionId: 2, value: "Option 2" },
+            value: "Which type of English test have you take?",
+            options: [
+              { value: "IELTS" },
+              { value: "TOEFL" },
+              { value: "Duolingo" },
             ],
           },
-        ],
-      },
-
-      {
-        _id: 4,
-        status: "Open",
-        surveyName: "Forth Survey Name",
-        description: "This is survey description",
-        creator: "admin2",
-        createDate: new Date("2022-01-02"),
-        questions: [
-          { questionId: 1, questionType: "text", value: "Questions 1 ?" },
           {
-            questionId: 2,
+            questionId: 3,
             questionType: "select",
-            value: "Questions 2 ?",
-            options: [{ value: "Option 1" }, { value: "Option 2" }],
-          },
-        ],
-        responses: [
-          {
-            responseId: 1,
-            submitDate: new Date("2022-01-16"),
-            responseDetails: [
-              { questionId: 1, value: "This is answer 1" },
-              { questionId: 2, value: "Option 2" },
+            value: "What is your English test result?",
+            options: [
+              { value: "A" },
+              { value: "B" },
+              { value: "C" },
+              { value: "D" },
+              { value: "E" },
+              { value: "F" },
             ],
           },
         ],
+        responses: [],
       },
     ],
-
-    // "book-list": [
-    //   {
-    //     id: 1,
-    //     name: "Dune",
-    //     author: "Frank Herbert",
-    //     published: "1965",
-    //     description:
-    //       "Set in the distant future amidst a feudal interstellar society in which various noble houses control planetary fiefs, Dune tells the story of young Paul Atreides, whose family accepts the stewardship of the planet Arrakis.\r\n                    \r\n                    ",
-    //     price: 10.95,
-    //   },
-    //   {
-    //     id: 2,
-    //     name: "Blood Music",
-    //     author: "Greg Bear",
-    //     published: "1985",
-    //     description:
-    //       "In the novel, renegade biotechnologist Vergil Ulam creates simple biological computers based on his own lymphocytes. Faced with orders from his nervous employer to destroy his work, he injects them into his own body, intending to smuggle the 'noocytes' (as he calls them) out of the company and work on them elsewhere.",
-    //     price: 19.95,
-    //   },
-    //   {
-    //     id: 3,
-    //     name: "Ring World",
-    //     author: "Larry Niven",
-    //     published: "1970",
-    //     description:
-    //       "On planet Earth in 2850 AD, Louis Gridley Wu is celebrating his 200th birthday. Despite his age, Louis is in perfect physical condition (due to the longevity drug boosterspice).\r\n                    ",
-    //     price: 22.59,
-    //     __v: 0,
-    //   },
-    //   {
-    //     id: 4,
-    //     name: "I, Robot",
-    //     author: "Isaac Asimov",
-    //     published: "1950",
-    //     description:
-    //       "I, Robot is a fixup novel of science fiction short stories or essays by American writer Isaac Asimov.\r\n                    \r\n                    ",
-    //     price: 14.96,
-    //   },
-    // ],
-    // orders: [],
   };
 };
