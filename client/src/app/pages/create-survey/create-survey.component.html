@@ -40,7 +40,7 @@
           <label for="questionType">Question Type:</label>
           <select
             class="form-control"
-            [(ngModel)]="question.type"
+            [(ngModel)]="question.questionType"
             [ngModelOptions]="{ standalone: true }"
           >
             <option value="select">Select</option>
@@ -56,7 +56,7 @@
           />
         </div>
         <br />
-        <div *ngIf="question.type == 'select'">
+        <div *ngIf="question.questionType == 'select'">
           <div class="row" *ngFor="let option of question.options">
             <div class="col-1">
               <input type="radio" name="radioBtn" id="radioBtn" />

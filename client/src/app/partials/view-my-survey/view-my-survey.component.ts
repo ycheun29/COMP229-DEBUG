@@ -30,7 +30,12 @@ export class ViewMySurveyComponent {
   }
 
   deleteSurvey(id: number): void {
-    const index = this.repository.getAllSurveys().findIndex((l) => l._id == id);
-    this.repository.getAllSurveys().splice(index, 1);
+    if (confirm('Are you sure?')) {
+      this.repository.deleteSurvey(id);
+    } else {
+      this.router.navigateByUrl('/view-survey');
+    }
+    // const index = this.repository.getAllSurveys().findIndex((l) => l._id == id);
+    // this.repository.getAllSurveys().splice(index, 1);
   }
 }

@@ -6,12 +6,44 @@ let jwt = require("jsonwebtoken");
 
 let Survey = require("../models/survey");
 
-module.exports.displaySurveyList = (req, res, next) => {
+module.exports.getSurveyList = (req, res, next) => {
   Survey.find((err, list) => {
     if (err) {
       return console.error(err);
     } else {
       res.json(list);
+    }
+  });
+};
+
+module.exports.updateSurvey = (req, res, next) => {
+  let id = req.params.id;
+
+  let item = JSON.parse(req.body);
+
+  Survey.updateOne({ _id: id }, item, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.json({
+        success: true,
+        msg: "Successfully Edited Survey",
+        survey: item,
+      });
+    }
+  });
+};
+
+module.exports.deleteSurvey = (req, res, next) => {
+  let id = req.params.id;
+
+  Survey.deleteOne({ _id: id }, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.json({ success: true, msg: "Successfully Deleted Survey" });
     }
   });
 };
