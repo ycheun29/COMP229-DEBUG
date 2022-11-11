@@ -22,18 +22,18 @@ export class Survey {
 
 export class Question {
   questionId: number;
-  type: string;
+  questionType: string;
   value: string;
   options: Option[];
 
   constructor(
     questionId?: number,
-    type?: string,
+    questionType?: string,
     value?: string,
     options?: Option[]
   ) {
     this.questionId = questionId;
-    this.type = type;
+    this.questionType = questionType;
     this.value = value;
     this.options = options;
   }
