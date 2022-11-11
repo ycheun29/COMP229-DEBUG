@@ -1,109 +1,106 @@
-<h1 class="display-5 text-center">Create Survey</h1>
-<div class="container mb-5">
-  <div class="callout callout-primary">
-    <div class="container px-5 py-4">
-      <div class="row">
-        <label for="name">Survey Name:</label>
-        <input class="form-control" id="name" />
-        <label for="description">Description:</label>
-        <textarea class="form-control" id="description" rows="3"></textarea>
+<h1 class="display-5 text-center">{{ editing ? "Edit" : "Create" }} Survey</h1>
+
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
+  <div class="container mb-5">
+    <div class="callout callout-primary">
+      <div class="container px-5 py-4">
+        <div class="row">
+          <label for="name">Survey Name:</label>
+          <input
+            class="form-control"
+            id="name"
+            name="surveyName"
+            [(ngModel)]="survey.surveyName"
+          />
+          <label for="description">Description:</label>
+          <input
+            class="form-control"
+            id="description"
+            name="description"
+            [(ngModel)]="survey.description"
+          />
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="callout callout-primary">
-    <div class="d-flex flex-row-reverse">
-      <button type="submit" class="btn">
-        <i class="fas fa-times text-danger fa-lg"></i>
-      </button>
-    </div>
-    <div class="container px-5">
-      <div class="row">
-        <label for="questionType">Question Type:</label>
-        <select class="form-control" id="questionType">
-          <option>Radio Button</option>
-          <option>Input Text</option>
-        </select>
-        <label for="question">Question:</label>
-        <input class="form-control" id="question" />
+    <div
+      class="callout callout-primary"
+      *ngFor="let question of survey.questions"
+    >
+      <div class="d-flex flex-row-reverse">
+        <button
+          class="btn btn-sm m-1"
+          (click)="removeQuestion(question.questionId)"
+        >
+          <i class="fas fa-times text-danger fa-lg"></i>
+        </button>
       </div>
-      <br />
-      <div class="row">
-        <div class="col-1">
-          <input type="radio" name="radioBtn" id="radioBtn" />
-        </div>
-        <div class="col-4">
-          <input class="form-control" value="Option 1" />
-        </div>
-        <div class="col-1">
-          <button type="submit" class="btn mb-2">
-            <i class="fas fa-trash-alt text-danger fa-lg"></i>
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-1">
-          <input type="radio" name="radioBtn" id="radioBtn" />
-        </div>
-        <div class="col-4">
-          <input class="form-control" value="Option 2" />
-        </div>
-        <div class="col-1">
-          <button type="submit" class="btn">
-            <i class="fas fa-trash-alt text-danger fa-lg"></i>
-          </button>
-        </div>
-      </div>
+      <div class="container px-5">
+        <div class="row">
+          <label for="questionType">Question Type:</label>
+          <select
+            class="form-control"
+            [(ngModel)]="question.type"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="select">Select</option>
+            <option value="text">Text</option>
+          </select>
 
-      <div class="row">
-        <form class="form-inline">
-          <div class="form-group mb-5">
-            <button type="submit" class="btn mb-2">
-              <i class="fas fa-plus-circle text-primary fa-lg"></i>
-            </button>
+          <label for="question">Question:</label>
+          <input
+            class="form-control"
+            name="questionValue"
+            [(ngModel)]="question.value"
+            [ngModelOptions]="{ standalone: true }"
+          />
+        </div>
+        <br />
+        <div *ngIf="question.type == 'select'">
+          <div class="row" *ngFor="let option of question.options">
+            <div class="col-1">
+              <input type="radio" name="radioBtn" id="radioBtn" />
+            </div>
+            <div class="col-4">
+              <input
+                class="form-control"
+                [(ngModel)]="option.value"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+            <div class="col-1">
+              <button
+                class="btn btn-sm m-1"
+                (click)="removeOption(question, option.value)"
+              >
+                <i class="fas fa-trash-alt text-danger fa-lg"></i>
+              </button>
+            </div>
           </div>
-          <div class="form-group mx-sm-3 mb-2"></div>
-          <button type="submit" class="btn mb-2"></button>
-        </form>
-      </div>
-    </div>
-  </div>
 
-  <div class="callout callout-primary">
-    <div class="d-flex flex-row-reverse">
-      <button type="submit" class="btn">
-        <i class="fas fa-times text-danger fa-lg"></i>
-      </button>
-    </div>
-    <div class="container px-5">
-      <div class="row">
-        <label for="questionType">Question Type:</label>
-        <select class="form-control" id="questionType">
-          <option>Input Text</option>
-          <option>Radio Button</option>
-        </select>
-        <label for="question">Question:</label>
-        <input class="form-control" id="question" />
-      </div>
-      <br />
-      <div class="row">
-        <textarea
-          class="form-control"
-          id="description"
-          placeholder="Enter your feedback here"
-          rows="5"
-        ></textarea>
+          <div class="row">
+            <form class="form-inline">
+              <div class="form-group mb-5">
+                <button class="btn btn-sm m-1" (click)="addOption(question)">
+                  <i class="fas fa-plus-circle text-primary fa-lg"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="callout callout-primary">
-    <div class="row justify-content-center">
-      <button type="submit" class="btn mb-2">
-        <i class="fas fa-plus-circle text-primary fa-5x"></i>
+    <div class="callout callout-primary">
+      <div class="row justify-content-center">
+        <button class="btn btn-sm m-1" (click)="addQuestion()">
+          <i class="fas fa-plus-circle text-primary fa-5x"></i>
+        </button>
+      </div>
+    </div>
+    <div class="d-flex flex-row-reverse pb-5">
+      <button type="button" class="btn btn-lg btn-primary">
+        {{ editing ? "Edit" : "Create" }}
       </button>
     </div>
   </div>
-  <div class="d-flex flex-row-reverse pb-5">
-    <button type="button" class="btn btn-lg btn-primary">Create</button>
-  </div>
-</div>
+</form>

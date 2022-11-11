@@ -10,22 +10,75 @@ module.exports = function () {
     ],
     "survey-list": [
       {
-        surveyId: 1,
+        _id: 1,
         status: "Open",
         surveyName: "First Survey Name",
         description: "This is survey description",
-        createBy: "admin",
+        creator: "admin",
         createDate: new Date("2022-01-02"),
         questions: [
           { questionId: 1, type: "text", value: "Questions 1 ?" },
           {
             questionId: 2,
             type: "select",
-            question: "Questions 2 ?",
-            options: [
-              { seq: 1, value: "Option 1" },
-              { seq: 2, value: "Option 2" },
+            value: "Questions 2 ?",
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
+          },
+        ],
+        responses: [
+          {
+            responseId: 1,
+            submitDate: new Date("2022-01-16"),
+            responseDetails: [
+              { questionId: 1, value: "This is answer 1" },
+              { questionId: 2, value: "Option 2" },
             ],
+          },
+        ],
+      },
+
+      {
+        _id: 2,
+        status: "Open",
+        surveyName: "Secod Survey Name",
+        description: "This is survey description",
+        creator: "admin",
+        createDate: new Date("2022-01-02"),
+        questions: [
+          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          {
+            questionId: 2,
+            type: "select",
+            value: "Questions 2 ?",
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
+          },
+        ],
+        responses: [
+          {
+            responseId: 1,
+            submitDate: new Date("2022-01-16"),
+            responseDetails: [
+              { questionId: 1, value: "This is answer 1" },
+              { questionId: 2, value: "Option 2" },
+            ],
+          },
+        ],
+      },
+
+      {
+        _id: 3,
+        status: "Open",
+        surveyName: "Third Survey Name",
+        description: "This is survey description",
+        creator: "admin2",
+        createDate: new Date("2022-01-02"),
+        questions: [
+          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          {
+            questionId: 2,
+            type: "select",
+            value: "Questions 2 ?",
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
           },
         ],
         responses: [
@@ -33,6 +86,34 @@ module.exports = function () {
             responseId: 1,
             submitDate: new Date("2022-01-16"),
             responses: [
+              { questionId: 1, value: "This is answer 1" },
+              { questionId: 2, value: "Option 2" },
+            ],
+          },
+        ],
+      },
+
+      {
+        _id: 4,
+        status: "Open",
+        surveyName: "Forth Survey Name",
+        description: "This is survey description",
+        creator: "admin2",
+        createDate: new Date("2022-01-02"),
+        questions: [
+          { questionId: 1, type: "text", value: "Questions 1 ?" },
+          {
+            questionId: 2,
+            type: "select",
+            value: "Questions 2 ?",
+            options: [{ value: "Option 1" }, { value: "Option 2" }],
+          },
+        ],
+        responses: [
+          {
+            responseId: 1,
+            submitDate: new Date("2022-01-16"),
+            responseDetails: [
               { questionId: 1, value: "This is answer 1" },
               { questionId: 2, value: "Option 2" },
             ],

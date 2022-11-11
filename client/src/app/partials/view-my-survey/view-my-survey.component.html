@@ -1,40 +1,37 @@
 <div class="container mb-5">
-    <div class="callout callout-primary">
+  <div class="callout callout-primary">
     <div class="card-header text-center bg-white"><h5>My Survey</h5></div>
     <div class="card-body">
-        <table class="table table-hover table-borderless">
+      <table class="table table-hover table-borderless">
         <tr>
-    <th class="col-7">Survey</th>
-    <th class="col-2">Created by</th>
-    <th class="col-2">Status</th>
-    <th class="col-1"></th>
-    <th class="col-1"></th>
-    <th class="col-1"></th>
-</tr>
-        <tr>
-            <td class="col-7">COVID-19 Vaccination Coverage Survey</td>
-            <td class="col-3">Chan</td>
-            <td class="col-3">Open</td>
-            <td class="col-1">
-                <a href="/surveyResult">
-                    <i class="fas f-2xl fa-chart-pie text-sucess"></i>
-                </a>
-            </td>
-            <td class="col-1">
-                <a href="/editSurvey">
-                    <i class="fas f-2xl fa-pen text-info"></i>
-                </a>
-            </td>
-            <td class="col-1">
-                <a href="/deleteSurvey">
-                    <i class="fa f-2xl fa-trash text-danger"></i>
-                </a>
-            </td>
-            
+          <th class="col-7">Survey</th>
+          <th class="col-2">Created by</th>
+          <th class="col-2">Status</th>
+          <th class="col-1"></th>
+          <th class="col-1"></th>
+          <th class="col-1"></th>
         </tr>
-    </table>
+        <tr *ngFor="let survey of surveys">
+          <td class="col-7">{{ survey.surveyName }}</td>
+          <td class="col-3">{{ survey.creator }}</td>
+          <td class="col-3">{{ survey.status }}</td>
+          <td class="col-1">
+            <a href="/surveyResult">
+              <i class="fas f-2xl fa-chart-pie text-sucess"></i>
+            </a>
+          </td>
+          <td class="col-1">
+            <button class="btn btn-sm m-1" (click)="editSurvey(survey._id)">
+              <i class="fas f-2xl fa-pen text-info"></i>
+            </button>
+          </td>
+          <td class="col-1">
+            <button class="btn btn-sm m-1" (click)="deleteSurvey(survey._id)">
+              <i class="fa f-2xl fa-trash text-danger"></i>
+            </button>
+          </td>
+        </tr>
+      </table>
     </div>
-    </div>
+  </div>
 </div>
-
-

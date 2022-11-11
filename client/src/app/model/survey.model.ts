@@ -1,27 +1,67 @@
-export class Survery {
-  id: string;
+export class Survey {
+  _id: number;
   surveyName: string;
   description: string;
-  createdBy: string;
+  creator: string;
   createdDate: Date;
   status: string;
-  questions: QuestionSchema[];
+  questions: Question[];
+  responses: Response[];
+
+  constructor(
+    _id?: number,
+    surveyName?: string,
+    description?: string,
+    creator?: string,
+    createdDate?: Date,
+    status?: string,
+    questions?: Question[],
+    responses?: Response[]
+  ) {}
 }
 
-export class QuestionSchema {
-  questionId: string;
+export class Question {
+  questionId: number;
   type: string;
-  option: string[];
-  responses: Responses[];
+  value: string;
+  options: Option[];
+
+  constructor(
+    questionId?: number,
+    type?: string,
+    value?: string,
+    options?: Option[]
+  ) {
+    this.questionId = questionId;
+    this.type = type;
+    this.value = value;
+    this.options = options;
+  }
 }
 
-export class Responses {
+export class Response {
   responsedId: string;
   submitedDate: Date;
-  value: string;
+  responseDetails: ResponseDetail[];
+
+  constructor(
+    responsedId?: string,
+    submitedDate?: Date,
+    responseDetails?: ResponseDetail[]
+  ) {}
 }
 
-export class option {
-  sequence: number;
+export class ResponseDetail {
+  questionId: number;
   value: string;
+
+  constructor(questionId?: number, value?: string) {}
+}
+
+export class Option {
+  value: string;
+
+  constructor(value?: string) {
+    this.value = value;
+  }
 }

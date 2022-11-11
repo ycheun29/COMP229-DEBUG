@@ -13,7 +13,7 @@ export class RegisterComponent extends BasePageComponent implements OnInit {
     super(route);
    }
 
-  ngOnInit(): void {
+   ngOnInit(): void {
   }
 
 }
