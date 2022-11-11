@@ -32,9 +32,13 @@ export class CreateSurveyComponent implements OnInit {
       this.survey.createdDate = new Date();
       this.survey.status = 'Open';
       this.survey.questions = [];
-      this.survey.questions[0] = new Question(1, 'select', 'New question', []);
-
-      //this.survey.questions = new QuestionSchema[];
+      this.survey.questions.push(
+        new Question(1, 'select', 'New question 1', [
+          new Option('New Option 1'),
+          new Option('New Option 2'),
+        ])
+      );
+      this.survey.questions.push(new Question(2, 'text', 'New question 2', []));
     }
   }
 
@@ -44,18 +48,25 @@ export class CreateSurveyComponent implements OnInit {
     // this.repository.saveBook(this.book);
     //this.router.navigateByUrl('/admin/main/books');
   }
-  removeOption(question: Question, index: number): void {
+  removeOption(question: Question, value: string): void {
+    const index = question.options.findIndex((l) => l.value == value);
     question.options.splice(index, 1);
   }
   addOption(question: Question): void {
-    let newOption = new Option('New Option');
-    question.options.push(newOption);
+    const id = question.options.length + 1;
+    question.options.push(new Option('New Option ' + id));
   }
 
-  removeQuestion(index: number): void {
+  removeQuestion(id: number): void {
+    const index = this.survey.questions.findIndex((l) => l.questionId == id);
     this.survey.questions.splice(index, 1);
   }
   addQuestion(): void {
-    this.survey.questions.push(new Question());
+    var id = 1;
+    if (this.survey.questions.length > 0)
+      id = Math.max(...this.survey.questions.map((k) => k.questionId)) + 1;
+    this.survey.questions.push(
+      new Question(id, 'text', 'New question ' + id, [])
+    );
   }
 }

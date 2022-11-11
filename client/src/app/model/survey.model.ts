@@ -31,7 +31,12 @@ export class Question {
     type?: string,
     value?: string,
     options?: Option[]
-  ) {}
+  ) {
+    this.questionId = questionId;
+    this.type = type;
+    this.value = value;
+    this.options = options;
+  }
 }
 
 export class Response {
@@ -56,5 +61,7 @@ export class ResponseDetail {
 export class Option {
   value: string;
 
-  constructor(value?: string) {}
+  constructor(value?: string) {
+    this.value = value;
+  }
 }
