@@ -16,10 +16,22 @@ module.exports.getSurveyList = (req, res, next) => {
   });
 };
 
+module.exports.addSurvey = (req, res, next) => {
+  let item = req.body;
+
+  Survey.create(req.body, (err, Survey) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    } else {
+      res.json({ success: true, msg: "Successfully Added New Survey" });
+    }
+  });
+};
+
 module.exports.updateSurvey = (req, res, next) => {
   let id = req.params.id;
-
-  let item = JSON.parse(req.body);
+  let item = req.body;
 
   Survey.updateOne({ _id: id }, item, (err) => {
     if (err) {

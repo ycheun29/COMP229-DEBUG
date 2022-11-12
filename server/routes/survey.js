@@ -18,6 +18,7 @@ function requireAuth(req, res, next) {
 }
 
 router.get("/", surveyController.getSurveyList);
+router.post("/add", surveyController.addSurvey);
 router.post("/edit/:id", surveyController.updateSurvey);
 router.post("/delete/:id", surveyController.deleteSurvey);
 

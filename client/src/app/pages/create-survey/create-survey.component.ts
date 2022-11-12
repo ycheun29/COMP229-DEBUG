@@ -1,4 +1,4 @@
-import { Question } from './../../model/survey.model';
+import { Question, Option } from './../../model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { NgForm } from '@angular/forms';
 import { Survey } from 'src/app/model/survey.model';
@@ -27,46 +27,46 @@ export class CreateSurveyComponent implements OnInit {
         repository.getSurvey(activeRoute.snapshot.params.id)
       );
     } else {
-      this.survey.surveyName = 'New survey';
-      this.survey.description = 'New survey description';
+      this.survey.surveyName = '';
+      this.survey.description = '';
       this.survey.createdDate = new Date();
       this.survey.status = 'Open';
+      this.survey.creator = 'admin';
       this.survey.questions = [];
       this.survey.questions.push(
-        new Question(1, 'select', 'New question 1', [
-          new Option('New Option 1'),
-          new Option('New Option 2'),
-        ])
+        new Question(1, 'select', '', [new Option('')])
       );
-      this.survey.questions.push(new Question(2, 'text', 'New question 2', []));
+      this.survey.questions.push(new Question(2, 'text', '', []));
     }
   }
 
   ngOnInit(): void {}
 
   save(form: NgForm): void {
-    // this.repository.saveBook(this.book);
-    //this.router.navigateByUrl('/admin/main/books');
+    console.log('NgForm');
+    this.repository.saveSurvey(this.survey);
+    this.router.navigateByUrl('/view-survey');
   }
+
   removeOption(question: Question, value: string): void {
     const index = question.options.findIndex((l) => l.value == value);
     question.options.splice(index, 1);
   }
   addOption(question: Question): void {
     const id = question.options.length + 1;
-    question.options.push(new Option('New Option ' + id));
+    question.options.push(new Option(''));
   }
 
   removeQuestion(id: number): void {
     const index = this.survey.questions.findIndex((l) => l.questionId == id);
     this.survey.questions.splice(index, 1);
   }
+
   addQuestion(): void {
+    console.log('addQuestion');
     var id = 1;
     if (this.survey.questions.length > 0)
       id = Math.max(...this.survey.questions.map((k) => k.questionId)) + 1;
-    this.survey.questions.push(
-      new Question(id, 'text', 'New question ' + id, [])
-    );
+    this.survey.questions.push(new Question(id, 'text', ' ', []));
   }
 }

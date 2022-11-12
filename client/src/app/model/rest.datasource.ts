@@ -36,8 +36,28 @@ export class RestDataSource {
     );
   }
 
+  addSurvey(survey: Survey): Observable<Survey> {
+    this.loadToken();
+    return this.http.post<Survey>(
+      `${this.baseUrl}/add`,
+      survey,
+      this.httpOptions
+    );
+  }
+
+  updateSurvey(survey: Survey): Observable<Survey> {
+    this.loadToken();
+
+    return this.http.post<Survey>(
+      `${this.baseUrl}/edit/${survey._id}`,
+      survey,
+      this.httpOptions
+    );
+  }
+
   private loadToken(): void {
-    const token = localStorage.getItem('id_token');
+    // const token = localStorage.getItem('id_token');
+    const token = 'admin';
     this.authToken = token;
     this.httpOptions.headers = this.httpOptions.headers.set(
       'Authorization',
