@@ -3,7 +3,6 @@ let mongoose = require("mongoose");
 // create a model class
 let model = mongoose.Schema(
   {
-    _id: Number,
     surveyName: String,
     description: String,
     creator: String,

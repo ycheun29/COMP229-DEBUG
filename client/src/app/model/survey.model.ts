@@ -1,67 +1,38 @@
 export class Survey {
-  _id: number;
-  surveyName: string;
-  description: string;
-  creator: string;
-  createdDate: Date;
-  status: string;
-  questions: Question[];
-  responses: Response[];
-
+  // tslint:disable-next-line: variable-name
   constructor(
-    _id?: number,
-    surveyName?: string,
-    description?: string,
-    creator?: string,
-    createdDate?: Date,
-    status?: string,
-    questions?: Question[],
-    responses?: Response[]
+    public _id?: number,
+    public surveyName?: string,
+    public description?: string,
+    public creator?: string,
+    public createdDate?: Date,
+    public status?: string,
+    public questions?: Question[],
+    public responses?: Response[]
   ) {}
 }
 
 export class Question {
-  questionId: number;
-  questionType: string;
-  value: string;
-  options: Option[];
-
   constructor(
-    questionId?: number,
-    questionType?: string,
-    value?: string,
-    options?: Option[]
-  ) {
-    this.questionId = questionId;
-    this.questionType = questionType;
-    this.value = value;
-    this.options = options;
-  }
+    public questionId?: number,
+    public questionType?: string,
+    public value?: string,
+    public options?: Option[]
+  ) {}
 }
 
 export class Response {
-  responsedId: number;
-  submitedDate: Date;
-  responseDetails: ResponseDetail[];
-
   constructor(
-    responsedId?: number,
-    submitedDate?: Date,
-    responseDetails?: ResponseDetail[]
+    public responsedId?: number,
+    public submitedDate?: Date,
+    public responseDetails?: ResponseDetail[]
   ) {}
 }
 
 export class ResponseDetail {
-  questionId: number;
-  value: string;
-
-  constructor(questionId?: number, value?: string) {}
+  constructor(public questionId?: number, public value?: string) {}
 }
 
 export class Option {
-  value: string;
-
-  constructor(value?: string) {
-    this.value = value;
-  }
+  constructor(public value?: string) {}
 }
