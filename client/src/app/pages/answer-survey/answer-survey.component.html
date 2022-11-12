@@ -4,12 +4,10 @@
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
-        <div class="row">
-          <label for="name">{{ survey.surveyName }}</label>
 
-          <label for="description">Description:</label>
-          <p>{{ survey.surveyName }}</p>
-        </div>
+          <p>Description:</p>
+          <p>{{ survey.description }}</p>
+
       </div>
     </div>
 
@@ -17,46 +15,49 @@
       class="callout callout-primary"
       *ngFor="let question of survey.questions"
     >
-      <div class="d-flex flex-row-reverse">
-      </div>
-      <div class="container px-5">
-        <div class="row">
+        <div *ngIf="question.questionType == 'text'">
+            <div class="d-flex flex-row-reverse">
+            </div>
+            <div class="container px-5">
 
-            <!-- [(ngModel)]="question.questionType" -->
+                    <p>Question:</p>
+                    <p>{{question.value}}</p>
+                    <p>Answer</p>
+                    <input
+                        class="form-control"
+                        id="response"
+                        name="response"
+                        [(ngModel)]="survey.response"
+                    />
 
-          <label for="question">Question:</label>
-          <p>{{question.value}}</p>
-          
+            </div>
+            <br />
         </div>
-        <br />
         <div *ngIf="question.questionType == 'select'">
-          <div class="row" *ngFor="let option of question.options">
-            <div class="col-1">
-              <input type="radio" name="radioBtn" id="radioBtn" />
+            <div class="container px-5">
+                <p>Question:</p>
+                <p>{{question.value}}</p>
+                <div class="row" *ngFor="let option of question.options">
+                    <div class="col-1">
+                        <input type="radio" name="radioBtn" id="radioBtn" />
+                    </div>
+                    <div class="col-4">
+                        <input
+                            class="form-control"
+                            [(ngModel)]="option.value"
+                            [ngModelOptions]="{ standalone: true }"
+                        />
+                    </div>
+                    <div class="col-1">
+                
+                    </div>
+                </div>
             </div>
-            <div class="col-4">
-              <input
-                class="form-control"
-                [(ngModel)]="option.value"
-                [ngModelOptions]="{ standalone: true }"
-              />
-            </div>
-            <div class="col-1">
-              
-            </div>
-          </div>
-
           
         </div>
-      </div>
+
     </div>
-    <div class="callout callout-primary">
-      <div class="row justify-content-center">
-        <button class="btn btn-sm m-1" (click)="addQuestion()">
-          <i class="fas fa-plus-circle text-primary fa-5x"></i>
-        </button>
-      </div>
-    </div>
+
     <div class="d-flex flex-row-reverse pb-5">
       <button type="button" class="btn btn-lg btn-primary">
         Submit
