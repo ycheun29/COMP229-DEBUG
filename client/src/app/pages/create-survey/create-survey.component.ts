@@ -33,20 +33,12 @@ export class CreateSurveyComponent implements OnInit {
       this.survey.status = 'Open';
       this.survey.creator = 'admin';
       this.survey.questions = [];
-      var question1 = new Question();
-      question1.questionType = 'text';
-      question1.options = [];
-      this.survey.questions.push(question1);
-      var question2 = new Question();
-      question2.questionType = 'select';
-      question2.options = [];
-      this.survey.questions.push(question2);
     }
   }
 
   ngOnInit(): void {}
 
-  save(): void {
+  onSubmit(): void {
     this.repository.saveSurvey(this.survey);
     this.router.navigateByUrl('/view-survey');
   }

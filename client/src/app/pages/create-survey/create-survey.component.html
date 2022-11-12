@@ -1,24 +1,41 @@
 <h1 class="display-5 text-center">{{ editing ? "Edit" : "Create" }} Survey</h1>
-
-<div class="container mb-5">
-  <div class="callout callout-primary">
-    <div class="container px-5 py-4">
-      <div class="row">
-        <label for="name">Survey Name:</label>
-        <input
-          class="form-control"
-          id="name"
-          name="surveyName"
-          [(ngModel)]="survey.surveyName"
-        />
-        <label for="description">Description:</label>
-        <input
-          class="form-control"
-          id="description"
-          name="description"
-          [(ngModel)]="survey.description"
-        />
-      </div>
+<form class="container mb-5" #userForm="ngForm" novalidate>
+  <!-- {{ userForm.value | json }}
+  {{ userForm.form.valid }} -->
+  <div class="callout callout-primary px-5 py-4">
+    <div class="form-group">
+      <label for="surveyName">Survey Name:</label>
+      <input
+        type="text"
+        required
+        #surveyName="ngModel"
+        [class.is-invalid]="surveyName.invalid && surveyName.touched"
+        class="form-control"
+        name="surveyName"
+        [(ngModel)]="survey.surveyName"
+      />
+      <small
+        class="text-danger"
+        [class.d-none]="surveyName.valid || surveyName.untouched"
+        >Survey name is required!</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        required
+        #description="ngModel"
+        [class.is-invalid]="description.invalid && surveyName.touched"
+        class="form-control"
+        name="description"
+        [(ngModel)]="survey.description"
+      />
+      <small
+        class="text-danger"
+        [class.d-none]="description.valid || description.untouched"
+        >Description is required!</small
+      >
     </div>
   </div>
 
@@ -32,37 +49,65 @@
       </button>
     </div>
     <div class="container px-5">
-      <div class="row">
+      <div class="form-group">
         <label for="questionType">Question Type:</label>
         <select
+          required
+          #questionType="ngModel"
+          [class.is-invalid]="questionType.invalid && questionType.touched"
           class="form-control"
           [(ngModel)]="question.questionType"
           [ngModelOptions]="{ standalone: true }"
         >
-          <option value="select">Select</option>
           <option value="text">Text</option>
+          <option value="select">Select</option>
         </select>
+        <small
+          class="text-danger"
+          [class.d-none]="questionType.valid || questionType.untouched"
+          >Question type is required!</small
+        >
+      </div>
 
+      <div class="form-group">
         <label for="question">Question:</label>
         <input
+          type="text"
+          required
+          #questionValue="ngModel"
+          [class.is-invalid]="questionValue.invalid && questionValue.touched"
           class="form-control"
           name="questionValue"
           [(ngModel)]="question.value"
-          [ngModelOptions]="{ standalone: true }"
         />
+        <small
+          class="text-danger"
+          [class.d-none]="questionValue.valid || questionValue.untouched"
+          >Question is required!</small
+        >
       </div>
       <br />
       <div *ngIf="question.questionType == 'select'">
-        <div class="row" *ngFor="let option of question.options">
+        <div class="form-group row" *ngFor="let option of question.options">
           <div class="col-1">
             <input type="radio" name="radioBtn" id="radioBtn" />
           </div>
           <div class="col-4">
             <input
+              type="text"
+              required
+              #optionValue="ngModel"
+              [class.is-invalid]="optionValue.invalid && optionValue.touched"
               class="form-control"
+              name="optionValue"
               [(ngModel)]="option.value"
               [ngModelOptions]="{ standalone: true }"
             />
+            <small
+              class="text-danger"
+              [class.d-none]="optionValue.valid || optionValue.untouched"
+              >Option is required!</small
+            >
           </div>
           <div class="col-1">
             <button
@@ -74,30 +119,28 @@
           </div>
         </div>
 
-        <div class="row">
-          <form class="form-inline">
-            <div class="form-group mb-5">
-              <button class="btn btn-sm m-1" (click)="addOption(question)">
-                <i class="fas fa-plus-circle text-primary fa-lg"></i>
-              </button>
-            </div>
-          </form>
+        <div class="row mb-5">
+          <button class="btn btn-sm m-1" (click)="addOption(question)">
+            <i class="fas fa-plus-circle text-primary fa-lg"></i>
+          </button>
         </div>
       </div>
     </div>
   </div>
   <div class="callout callout-primary">
     <div class="row justify-content-center">
-      <div class="form-group">
-        <button class="btn btn-sm m-1" (click)="addQuestion()">
-          <i class="fas fa-plus-circle text-primary fa-5x"></i>
-        </button>
-      </div>
+      <button class="btn btn-sm m-1" (click)="addQuestion()">
+        <i class="fas fa-plus-circle text-primary fa-5x"></i>
+      </button>
     </div>
   </div>
   <div class="d-flex flex-row-reverse pb-5">
-    <button class="btn btn-lg btn-primary" (click)="save()">
+    <button
+      [disabled]="userForm.form.invalid"
+      class="btn btn-lg btn-primary"
+      (click)="onSubmit()"
+    >
       {{ editing ? "Edit" : "Create" }}
     </button>
   </div>
-</div>
+</form>
