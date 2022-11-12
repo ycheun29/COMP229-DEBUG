@@ -1,19 +1,92 @@
-{
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
+[
+  {
+    "_id": { "$oid": "636f105cb5317f32a8dd2aaf" },
+    "status": "Open",
+    "surveyName": "COVID-19 Vaccination Survey",
+    "description": "The aims is to record the student COVID-19 vaccination status.",
+    "creator": "admin",
+    "createdDate": { "$date": { "$numberLong": "1668223038127" } },
+    "questions": [
+      {
+        "_id": { "$oid": "636f105cb5317f32a8dd2ab0" },
+        "questionType": "text",
+        "value": "What is your student ID?",
+        "options": [],
+        "responses": []
+      },
+      {
+        "_id": { "$oid": "636f105cb5317f32a8dd2ab1" },
+        "questionType": "select",
+        "value": "Which type of vaccine have you take?",
+        "options": [
+          { "_id": { "$oid": "636f105cb5317f32a8dd2ab2" }, "value": "Moderna" },
+          { "_id": { "$oid": "636f105cb5317f32a8dd2ab3" }, "value": "Pfizer" },
+          { "_id": { "$oid": "636f105cb5317f32a8dd2ab4" }, "value": "Novavax" }
+        ],
+        "responses": []
+      }
+    ],
+    "__v": { "$numberInt": "0" }
+  },
+  {
+    "_id": { "$oid": "636f1094b5317f32a8dd2ab5" },
+    "status": "Open",
+    "surveyName": "MonkeyPox Vaccination Survey",
+    "description": "The aims is to record the student MonkeyPox vaccination status.",
+    "creator": "admin",
+    "createdDate": { "$date": { "$numberLong": "1668223072435" } },
+    "questions": [
+      {
+        "_id": { "$oid": "636f1094b5317f32a8dd2ab6" },
+        "questionType": "text",
+        "value": "What is your student ID?",
+        "options": [],
+        "responses": []
+      },
+      {
+        "_id": { "$oid": "636f1094b5317f32a8dd2ab7" },
+        "questionType": "select",
+        "value": "Which type of vaccine have you take?",
+        "options": [
+          { "_id": { "$oid": "636f1094b5317f32a8dd2ab8" }, "value": "JYNNEOS" },
+          { "_id": { "$oid": "636f1094b5317f32a8dd2ab9" }, "value": "ACAM2000" }
+        ],
+        "responses": []
+      }
+    ],
+    "__v": { "$numberInt": "0" }
+  },
+
+  {
+    "_id": { "$oid": "636f10cab5317f32a8dd2aba" },
+    "status": "Open",
+    "surveyName": "English Level Survey",
+    "description": "The aims is to record the student english level.",
+    "creator": "admin",
+    "createdDate": { "$date": { "$numberLong": "1668223128399" } },
+    "questions": [
+      {
+        "_id": { "$oid": "636f10cab5317f32a8dd2abb" },
+        "questionType": "text",
+        "value": "What is your student ID?",
+        "options": [],
+        "responses": []
+      },
+      {
+        "_id": { "$oid": "636f10cab5317f32a8dd2abc" },
+        "questionType": "select",
+        "value": "Which type of English test have you take?",
+        "options": [
+          { "_id": { "$oid": "636f10cab5317f32a8dd2abd" }, "value": "A" },
+          { "_id": { "$oid": "636f10cab5317f32a8dd2abe" }, "value": "B" },
+          { "_id": { "$oid": "636f10cab5317f32a8dd2abf" }, "value": "C" },
+          { "_id": { "$oid": "636f10cab5317f32a8dd2ac0" }, "value": "D" },
+          { "_id": { "$oid": "636f10cab5317f32a8dd2ac1" }, "value": "E" },
+          { "_id": { "$oid": "636f10cab5317f32a8dd2ac2" }, "value": "F" }
+        ],
+        "responses": []
+      }
+    ],
+    "__v": { "$numberInt": "0" }
   }
-}
+]

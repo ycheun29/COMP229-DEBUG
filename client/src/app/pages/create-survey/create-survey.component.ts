@@ -33,40 +33,43 @@ export class CreateSurveyComponent implements OnInit {
       this.survey.status = 'Open';
       this.survey.creator = 'admin';
       this.survey.questions = [];
-      this.survey.questions.push(
-        new Question(1, 'select', '', [new Option('')])
-      );
-      this.survey.questions.push(new Question(2, 'text', '', []));
+      var question1 = new Question();
+      question1.questionType = 'text';
+      question1.options = [];
+      this.survey.questions.push(question1);
+      var question2 = new Question();
+      question2.questionType = 'select';
+      question2.options = [];
+      this.survey.questions.push(question2);
     }
   }
 
   ngOnInit(): void {}
 
   save(form: NgForm): void {
-    console.log('NgForm');
     this.repository.saveSurvey(this.survey);
     this.router.navigateByUrl('/view-survey');
   }
 
-  removeOption(question: Question, value: string): void {
-    const index = question.options.findIndex((l) => l.value == value);
+  removeOption(question: Question, option: Option): void {
+    const index = question.options.findIndex((l) => l._id == option._id);
     question.options.splice(index, 1);
   }
   addOption(question: Question): void {
-    const id = question.options.length + 1;
-    question.options.push(new Option(''));
+    var option = new Option();
+    option.value = '';
+    question.options.push(option);
   }
 
   removeQuestion(id: number): void {
-    const index = this.survey.questions.findIndex((l) => l.questionId == id);
+    const index = this.survey.questions.findIndex((l) => l._id == id);
     this.survey.questions.splice(index, 1);
   }
 
   addQuestion(): void {
-    console.log('addQuestion');
-    var id = 1;
-    if (this.survey.questions.length > 0)
-      id = Math.max(...this.survey.questions.map((k) => k.questionId)) + 1;
-    this.survey.questions.push(new Question(id, 'text', ' ', []));
+    var question = new Question();
+    question.questionType = 'text';
+    question.options = [];
+    this.survey.questions.push(question);
   }
 }

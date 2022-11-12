@@ -2,37 +2,29 @@ export class Survey {
   // tslint:disable-next-line: variable-name
   constructor(
     public _id?: number,
+    public status?: string,
     public surveyName?: string,
     public description?: string,
     public creator?: string,
     public createdDate?: Date,
-    public status?: string,
-    public questions?: Question[],
-    public responses?: Response[]
+    public questions?: Question[]
   ) {}
 }
 
 export class Question {
   constructor(
-    public questionId?: number,
+    public _id?: number,
     public questionType?: string,
     public value?: string,
-    public options?: Option[]
+    public options?: Option[],
+    public responses?: Response[]
   ) {}
 }
 
 export class Response {
-  constructor(
-    public responsedId?: number,
-    public submitedDate?: Date,
-    public responseDetails?: ResponseDetail[]
-  ) {}
-}
-
-export class ResponseDetail {
-  constructor(public questionId?: number, public value?: string) {}
+  constructor(public value?: string) {}
 }
 
 export class Option {
-  constructor(public value?: string) {}
+  constructor(public _id?: number, public value?: string) {}
 }

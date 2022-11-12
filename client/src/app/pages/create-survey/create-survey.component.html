@@ -28,10 +28,7 @@
       *ngFor="let question of survey.questions"
     >
       <div class="d-flex flex-row-reverse">
-        <button
-          class="btn btn-sm m-1"
-          (click)="removeQuestion(question.questionId)"
-        >
+        <button class="btn btn-sm m-1" (click)="removeQuestion(question._id)">
           <i class="fas fa-times text-danger fa-lg"></i>
         </button>
       </div>
@@ -71,7 +68,7 @@
             <div class="col-1">
               <button
                 class="btn btn-sm m-1"
-                (click)="removeOption(question, option.value)"
+                (click)="removeOption(question, option)"
               >
                 <i class="fas fa-trash-alt text-danger fa-lg"></i>
               </button>

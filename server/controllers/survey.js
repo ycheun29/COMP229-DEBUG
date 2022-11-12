@@ -17,8 +17,6 @@ module.exports.getSurveyList = (req, res, next) => {
 };
 
 module.exports.addSurvey = (req, res, next) => {
-  let item = req.body;
-
   Survey.create(req.body, (err, Survey) => {
     if (err) {
       console.log(err);
