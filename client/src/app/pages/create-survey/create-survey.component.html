@@ -1,5 +1,10 @@
 <h1 class="display-5 text-center">{{ editing ? "Edit" : "Create" }} Survey</h1>
-<form class="container mb-5" #userForm="ngForm" novalidate>
+
+<div *ngIf="submitted" class="container mb-5">
+  <div class="alert alert-success" role="alert">Submitted !</div>
+</div>
+
+<form *ngIf="!submitted" class="container mb-5" #userForm="ngForm" novalidate>
   <!-- {{ userForm.value | json }}
   {{ userForm.form.valid }} -->
   <div class="callout callout-primary px-5 py-4">

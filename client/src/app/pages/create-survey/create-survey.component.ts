@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CreateSurveyComponent implements OnInit {
   editing = false;
+  submitted = false;
   survey: Survey = new Survey();
 
   constructor(
@@ -39,8 +40,9 @@ export class CreateSurveyComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
+    this.submitted = true;
     this.repository.saveSurvey(this.survey);
-    this.router.navigateByUrl('/view-survey');
+    // this.router.navigateByUrl('/view-survey');
   }
 
   removeOption(question: Question, option: Option): void {
