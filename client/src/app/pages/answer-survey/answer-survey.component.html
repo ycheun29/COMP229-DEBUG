@@ -4,7 +4,10 @@
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
-
+        <p>Created Date:</p>
+        <p>{{ survey.createdDate }}</p>
+        <p>Created by:</p>
+        <p>{{ survey.creator }}</p>
           <p>Description:</p>
           <p>{{ survey.description }}</p>
 
@@ -25,9 +28,9 @@
                     <p>Answer</p>
                     <input
                         class="form-control"
-                        id="response"
-                        name="response"
-                        [(ngModel)]="survey.response"
+                        id="responses"
+                        name="responses"
+                        [(ngModel)]="responses.responseDetails.value"
                     />
 
             </div>
