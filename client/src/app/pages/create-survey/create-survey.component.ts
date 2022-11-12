@@ -46,7 +46,7 @@ export class CreateSurveyComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  save(form: NgForm): void {
+  save(): void {
     this.repository.saveSurvey(this.survey);
     this.router.navigateByUrl('/view-survey');
   }
