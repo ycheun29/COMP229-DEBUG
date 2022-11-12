@@ -40,12 +40,12 @@ export class Question {
 }
 
 export class Response {
-  responsedId: string;
+  responsedId: number;
   submitedDate: Date;
   responseDetails: ResponseDetail[];
 
   constructor(
-    responsedId?: string,
+    responsedId?: number,
     submitedDate?: Date,
     responseDetails?: ResponseDetail[]
   ) {}
