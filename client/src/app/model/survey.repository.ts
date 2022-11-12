@@ -49,11 +49,9 @@ export class SurveyRepository {
   }
 
   deleteSurvey(id: number): void {
-    this.dataSource.deleteSurvey(id).subscribe((order) => {
-      this.surveys.splice(
-        this.surveys.findIndex((o) => id === o._id),
-        1
-      );
+    this.dataSource.deleteSurvey(id).subscribe((data) => {
+      //console.log(data);
+      this.loadSurveys();
     });
   }
 
