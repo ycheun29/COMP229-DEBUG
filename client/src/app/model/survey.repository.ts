@@ -59,20 +59,14 @@ export class SurveyRepository {
 
   saveSurvey(item: Survey): void {
     if (item._id === null || item._id === 0 || item._id === undefined) {
-      this.dataSource.addSurvey(item).subscribe((b) => {
-        // this.surveys.push(item);
-        (data) => console.log('Success!', data);
-        (error) => console.log('Error!', error);
+      this.dataSource.addSurvey(item).subscribe((data) => {
+        //console.log(data);
+        this.loadSurveys();
       });
     } else {
-      this.dataSource.updateSurvey(item).subscribe((survey) => {
-        (data) => console.log('Success!', data);
-        (error) => console.log('Error!', error);
-        // this.surveys.splice(
-        //   this.surveys.findIndex((b) => b._id === item._id),
-        //   1,
-        //   item
-        // );
+      this.dataSource.updateSurvey(item).subscribe((data) => {
+        //console.log(data);
+        this.loadSurveys();
       });
     }
   }

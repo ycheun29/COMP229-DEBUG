@@ -42,7 +42,7 @@ export class CreateSurveyComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     this.repository.saveSurvey(this.survey);
-    // this.router.navigateByUrl('/view-survey');
+    this.router.navigateByUrl('/view-survey');
   }
 
   removeOption(question: Question, option: Option): void {
