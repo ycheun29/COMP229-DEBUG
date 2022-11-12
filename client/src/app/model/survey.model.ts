@@ -22,7 +22,7 @@ export class Question {
 }
 
 export class Response {
-  constructor(public value?: string) {}
+  constructor(public _id?: number, public value?: string) {}
 }
 
 export class Option {
