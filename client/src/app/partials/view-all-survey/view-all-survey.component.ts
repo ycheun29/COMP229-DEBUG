@@ -21,7 +21,7 @@ export class ViewAllSurveyComponent {
     return this.repository.getCreators();
   }
 
-  editSurvey(id: number): void {
-    this.router.navigateByUrl('/survey/edit/' + id);
+answerSurvey(id: number): void {
+    this.router.navigateByUrl('/answer-survey/' + id);
   }
 }

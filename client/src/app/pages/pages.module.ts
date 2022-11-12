@@ -6,6 +6,7 @@ import { PartialsModule } from '../partials/partials.module';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { ViewSurveyComponent } from './view-survey/view-survey.component';
 import { LoginComponent } from './login/login.component';
+import { AnswerSurveyComponent } from './answer-survey/answer-survey.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, PartialsModule],
@@ -13,6 +14,7 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     CreateSurveyComponent,
     ViewSurveyComponent,
+    AnswerSurveyComponent,
     LoginComponent,
   ],
   exports: [HomeComponent, PartialsModule],

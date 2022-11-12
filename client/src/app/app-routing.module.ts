@@ -7,6 +7,7 @@ import { CreateSurveyComponent } from './pages/create-survey/create-survey.compo
 import { ViewSurveyComponent } from './pages/view-survey/view-survey.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AnswerSurveyComponent } from './pages/answer-survey/answer-survey.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
@@ -40,6 +41,11 @@ const routes: Routes = [
     path: 'survey/:mode/:id',
     component: CreateSurveyComponent,
     data: { title: 'Edit' },
+  },
+  {
+    path: 'answer-survey/:id',
+    component: AnswerSurveyComponent,
+    data: { title: 'Answer Survey' },
   },
 ];
 
