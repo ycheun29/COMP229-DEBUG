@@ -16,7 +16,6 @@ export class Question {
     public _id?: number,
     public questionType?: string,
     public value?: string,
-    public temp?: string,
     public options?: Option[],
     public responses?: Response[]
   ) {}
