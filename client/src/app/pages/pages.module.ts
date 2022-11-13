@@ -1,3 +1,4 @@
+import { RegisterComponent } from './register/register.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,7 @@ import { AnswerSurveyComponent } from './answer-survey/answer-survey.component';
     ViewSurveyComponent,
     AnswerSurveyComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   exports: [HomeComponent, PartialsModule],
 })
