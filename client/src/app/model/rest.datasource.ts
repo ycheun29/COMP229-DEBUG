@@ -87,6 +87,7 @@ export class RestDataSource {
   storeUserData(token: any, user: User): void {
     localStorage.setItem('id_token', 'Bearer ' + token);
     localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('username', user.username);
     this.authToken = token;
     this.user = user;
   }
