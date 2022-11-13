@@ -89,6 +89,7 @@
           class="form-control"
           name="questionValue"
           [(ngModel)]="question.value"
+          [ngModelOptions]="{ standalone: true }"
         />
         <small
           class="text-danger"
