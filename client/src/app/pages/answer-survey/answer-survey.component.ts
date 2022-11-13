@@ -1,7 +1,7 @@
 import { Question } from './../../model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { NgForm } from '@angular/forms';
-import { Survey } from 'src/app/model/survey.model';
+import { Survey, Response } from 'src/app/model/survey.model';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -49,5 +49,13 @@ export class AnswerSurveyComponent implements OnInit {
     this.survey.questions.push(
       new Question(id, 'text', 'New question ' + id, [])
     );
+  }
+  onSubmit(): void {
+    this.survey.questions.forEach(function (question) {
+      var response = new Response();
+      response.value = question.temp;
+      question.responses.push(response);
+    });
+    this.repository.saveSurvey(this.survey);
   }
 }
