@@ -1,6 +1,6 @@
 <h1 class="display-5 text-center">{{ survey.surveyName }}</h1>
 
-<form novalidate #form="ngForm" (ngSubmit)="save(form)">
+<form novalidate #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
@@ -8,9 +8,8 @@
         <p>{{ survey.createdDate }}</p>
         <h6>Created by:</h6>
         <p>{{ survey.creator }}</p>
-          <h6>Description:</h6>
-          <p>{{ survey.description }}</p>
-
+        <h6>Description:</h6>
+        <p>{{ survey.description }}</p>
       </div>
     </div>
 
@@ -18,26 +17,22 @@
       class="callout callout-primary"
       *ngFor="let question of survey.questions"
     >
-        <div *ngIf="question.questionType == 'text'">
-            <div class="d-flex flex-row-reverse">
-            </div>
-            <div class="container px-5">
-
-                    <p>Question:</p>
-                    <p>{{question.value}}</p>
-                    <p>Answer</p>
-                    <input
-                        class="form-control"
-                        id="responses"
-                        name="responses"
-                        [(ngModel)]="responses.responseDetails.value"
-                    />
-
-            </div>
-            <br />
+      <div *ngIf="question.questionType == 'text'">
+        <div class="d-flex flex-row-reverse"></div>
+        <div class="container px-5">
+          <p>Question:</p>
+          <p>{{ question.value }}</p>
+          <p>Answer</p>
+          <input
+            class="form-control"
+            id="responses"
+            name="responses"
+            [(ngModel)]="responses.responseDetails.value"
+          />
         </div>
         <br />
       </div>
+      <br />
       <div *ngIf="question.questionType == 'dropdown'">
         <div class="container px-5">
           <p>Question:</p>
@@ -54,7 +49,13 @@
           <p>Question:</p>
           <p>{{ question.value }}</p>
           <div *ngFor="let option of question.options">
-            <input type="radio" name={{question.value}} value={{option.value}} [(ngModel)]="question.temp" (ngModelChange)="question.temp=(option.value)"/>
+            <input
+              type="radio"
+              name="{{ question.value }}"
+              value="{{ option.value }}"
+              [(ngModel)]="question.temp"
+              (ngModelChange)="question.temp = option.value"
+            />
             <label for="question.value">{{ option.value }}</label>
           </div>
         </div>
@@ -62,9 +63,7 @@
     </div>
 
     <div class="d-flex flex-row-reverse pb-5">
-      <button type="button" class="btn btn-lg btn-primary">
-        Submit
-      </button>
+      <button type="submit" class="btn btn-lg btn-primary">Submit</button>
     </div>
   </div>
 </form>

@@ -17,7 +17,8 @@ export class Question {
     public questionType?: string,
     public value?: string,
     public options?: Option[],
-    public responses?: Response[]
+    public responses?: Response[],
+    public temp?: string
   ) {}
 }
 
