@@ -48,7 +48,7 @@
           <p>Question:</p>
           <p>{{ question.value }}</p>
           <div *ngFor="let option of question.options">
-            <input type="radio" name="question.value" value={{option.value}} [(ngModel)]="question.temp" (ngModelChange)="question.temp=(option.value)"/>
+            <input type="radio" name={{question.value}} value={{option.value}} [(ngModel)]="question.temp" (ngModelChange)="question.temp=(option.value)"/>
             <label for="question.value">{{ option.value }}</label>
           </div>
         </div>
