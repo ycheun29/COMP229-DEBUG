@@ -23,8 +23,7 @@ export class RegisterComponent implements OnInit {
     this.auth.register(this.user).subscribe(
       (data) => {
         if (data.success) {
-          this.auth.storeUserData(data.token, data.user);
-          this.router.navigateByUrl('/view-survey');
+          this.router.navigateByUrl('/login');
         } else {
           this.errorMessage = data.msg;
         }
