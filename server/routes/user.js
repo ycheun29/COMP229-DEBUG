@@ -1,13 +1,10 @@
 let express = require("express");
 let router = express.Router();
 
-let indexController = require("../controllers/index");
+let indexController = require("../controllers/user");
 
 /* POST Route for processing the Login page */
 router.post("/login", indexController.processLoginPage);
-
-/* GET Route for displaying the Register page */
-//router.get('/register', indexController.displayRegisterPage);
 
 /* POST Route for processing the Register page */
 router.post("/register", indexController.processRegisterPage);
