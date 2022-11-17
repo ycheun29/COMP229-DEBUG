@@ -9,3 +9,14 @@
 .nav-link-primary {
   background-color: #d98a60 !important;
 }
+
+.btn-logout,
+.btn-logout:hover,
+.btn-logout:active,
+.btn-logout:visited {
+  background-color: #d96060 !important;
+  border: #d96060;
+}
+.nav-link-logout {
+  background-color: #d96060 !important;
+}

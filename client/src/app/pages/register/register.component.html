@@ -5,24 +5,93 @@
         <div class="card-body p-5">
           <h2 class="mb-5 text-center">Register</h2>
 
-          <div class="form-outline mb-4">
-            <label class="form-label" for="typeEmailX-2"> Username </label>
-            <input id="typeEmailX-2" class="form-control form-control-lg" />
-          </div>
+          <form #registerForm="ngForm" novalidate>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="username"> Username </label>
+              <input
+                type="text"
+                required
+                #username="ngModel"
+                [class.is-invalid]="username.invalid && username.touched"
+                class="form-control form-control-lg"
+                name="username"
+                [(ngModel)]="user.username"
+              />
+              <small
+                class="text-danger"
+                [class.d-none]="username.valid || username.untouched"
+                >Username is required!</small
+              >
+            </div>
 
-          <div class="form-outline mb-4">
-            <label class="form-label" for="typeEmailX-2"> Password </label>
-            <input id="typeEmailX-2" class="form-control form-control-lg" />
-          </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="password"> Password </label>
+              <input
+                type="password"
+                required
+                #password="ngModel"
+                [class.is-invalid]="password.invalid && password.touched"
+                class="form-control form-control-lg"
+                name="password"
+                [(ngModel)]="user.password"
+              />
+              <small
+                class="text-danger"
+                [class.d-none]="password.valid || password.untouched"
+                >Password is required!</small
+              >
+            </div>
 
-          <div class="form-outline mb-4">
-            <label class="form-label" for="typeEmailX-2"> Confirm Password </label>
-            <input id="typeEmailX-2" class="form-control form-control-lg" />
-          </div>
+            <div class="form-outline">
+              <label class="form-label" for="confirmPassword">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                required
+                #confirmPassword="ngModel"
+                [class.is-invalid]="
+                  confirmPassword.invalid && confirmPassword.touched
+                "
+                name="confirmPassword"
+                class="form-control form-control-lg"
+                [(ngModel)]="user.confirmPassword"
+              />
+            </div>
+            <div>
+              <small
+                class="text-danger"
+                [class.d-none]="
+                  confirmPassword.valid || confirmPassword.untouched
+                "
+                >Confirm Password is required!
+              </small>
+            </div>
+            <div>
+              <small
+                class="text-danger"
+                [class.d-none]="
+                  confirmPassword.untouched ||
+                  password.value == confirmPassword.value
+                "
+                >Confirm Password is not matach with Password!</small
+              >
+            </div>
 
-          <button class="btn btn-primary btn-lg btn-block" type="submit">
-            Register
-          </button>
+            <button
+              [disabled]="
+                registerForm.form.invalid ||
+                password.value != confirmPassword.value
+              "
+              class="btn btn-primary btn-lg btn-block mt-4"
+              (click)="register()"
+            >
+              Register
+            </button>
+            <div class="mt-2 p-2 text-center text-danger">
+              {{ errorMessage }}
+            </div>
+          </form>
         </div>
       </div>
     </div>

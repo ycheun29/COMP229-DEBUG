@@ -15,7 +15,9 @@ export class ViewMySurveyComponent {
 
   public selectedCreator = 'admin';
 
-  constructor(private repository: SurveyRepository, private router: Router) {}
+  constructor(private repository: SurveyRepository, private router: Router) {
+    this.selectedCreator = localStorage.getItem('username');
+  }
 
   get surveys(): Survey[] {
     return this.repository.getSurveys(this.selectedCreator);

@@ -24,15 +24,20 @@
         <a class="nav-link p-3" href="/view-survey"> View Survey </a>
       </li>
 
-      <li class="nav-item mx-3 fa-lg">
+      <li *ngIf="!isLoggedIn()" class="nav-item mx-3 fa-lg">
         <a class="nav-link p-3" href="/register"> Register </a>
       </li>
 
-      <li class="nav-item mx-3 fa-lg">
-        <a class="nav-link p-3" href="/login"> Login </a>
+      <li *ngIf="!isLoggedIn()" class="nav-item mx-3 fa-lg">
+        <a
+          class="nav-link rounded text-white nav-link-primary p-3"
+          href="/login"
+        >
+          Login
+        </a>
       </li>
 
-      <li class="nav-item mx-3 fa-lg">
+      <li *ngIf="isLoggedIn()" class="nav-item mx-3 fa-lg">
         <a
           class="nav-link rounded text-white nav-link-primary p-3"
           href="/create-survey"
@@ -40,6 +45,18 @@
           Create a Survey
         </a>
       </li>
+
+      <li *ngIf="isLoggedIn()" class="nav-item mx-3 fa-lg">
+        <a
+          class="nav-link rounded text-white nav-link-logout p-3"
+          href="/login"
+          routerLink="/logout"
+          (click)="onLogoutClick()"
+          >Logout ({{ user.username }})
+        </a>
+      </li>
+
+      <li *ngIf="isLoggedIn()" class="nav-item"></li>
     </ul>
   </div>
 </nav>

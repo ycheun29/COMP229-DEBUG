@@ -5,23 +5,54 @@
         <div class="card-body p-5">
           <h2 class="mb-5 text-center">Login</h2>
 
-          <div class="form-outline mb-4">
-            <label class="form-label" for="typeEmailX-2">Username</label>
-            <input id="typeEmailX-2" class="form-control form-control-lg" />
-          </div>
+          <form #loginForm="ngForm" novalidate>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="username">Username</label>
+              <input
+                type="text"
+                required
+                #username="ngModel"
+                [class.is-invalid]="username.invalid && username.touched"
+                class="form-control form-control-lg"
+                name="username"
+                [(ngModel)]="user.username"
+              />
+              <small
+                class="text-danger"
+                [class.d-none]="username.valid || username.untouched"
+                >Username is required!</small
+              >
+            </div>
 
-          <div class="form-outline mb-4">
-            <label class="form-label" for="typePasswordX-2">Password</label>
-            <input
-              type="password"
-              id="typePasswordX-2"
-              class="form-control form-control-lg"
-            />
-          </div>
+            <div class="form-outline mb-4">
+              <label class="form-label" for="password">Password</label>
+              <input
+                type="password"
+                required
+                #password="ngModel"
+                [class.is-invalid]="password.invalid && password.touched"
+                class="form-control form-control-lg"
+                name="password"
+                [(ngModel)]="user.password"
+              />
+              <small
+                class="text-danger"
+                [class.d-none]="password.valid || password.untouched"
+                >Password is required!</small
+              >
+            </div>
 
-          <button class="btn btn-primary btn-lg btn-block" type="submit">
-            Login
-          </button>
+            <button
+              [disabled]="loginForm.form.invalid"
+              class="btn btn-primary btn-lg btn-block"
+              (click)="authenticate()"
+            >
+              Login
+            </button>
+            <div class="mt-2 p-2 text-center text-danger">
+              {{ errorMessage }}
+            </div>
+          </form>
         </div>
       </div>
     </div>

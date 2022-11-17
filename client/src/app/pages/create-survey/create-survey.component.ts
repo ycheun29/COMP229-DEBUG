@@ -32,7 +32,7 @@ export class CreateSurveyComponent implements OnInit {
       this.survey.description = '';
       this.survey.createdDate = new Date();
       this.survey.status = 'Open';
-      this.survey.creator = 'admin';
+      this.survey.creator = localStorage.getItem('username');
       this.survey.questions = [];
     }
   }
