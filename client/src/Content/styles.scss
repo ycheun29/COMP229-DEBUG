@@ -29,21 +29,21 @@
   }
 }
 
-a {
-  z-index: 1000;
-  position: relative;
-}
+// a {
+//   z-index: 1000;
+//   position: relative;
+// }
 
 //scss for index page animation backgroup
 @import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;1,500&display=swap");
 
-$purple: #e0a66b;
-$blue: #cb534b;
-$ltblue: #ffffff;
-$magenta: #361a22;
+$c1: #e0a66b;
+$c2: #cb534b;
+$c3: #ffffff;
+$c4: #361a22;
 
 .animateBg {
-  background-image: linear-gradient($blue, $purple);
+  background-image: linear-gradient($c2, $c1);
   background-position: absolute;
   height: 100vh;
   font-size: calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
@@ -55,13 +55,19 @@ $magenta: #361a22;
   z-index: 0;
 }
 
+.heroMessage {
+  position: relative;
+  z-index: 1000;
+}
+
 h1 {
   font-size: 3em;
   margin-bottom: 0.2em;
+  color: #fff;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .main {
@@ -78,7 +84,7 @@ h2 {
     content: "";
     display: block;
     position: absolute;
-    z-index: 1;
+    z-index: 0;
   }
   &:before {
     right: 0;
@@ -86,7 +92,7 @@ h2 {
     height: 30em;
     width: 30em;
     border-radius: 30em;
-    background: linear-gradient($blue, $purple);
+    background: linear-gradient($c2, $c1);
     align-self: flex-end;
     animation: gradient-fade 8s ease-in-out 3s infinite alternate;
   }
@@ -97,7 +103,7 @@ h2 {
     height: $circle-unit;
     width: $circle-unit;
     border-radius: $circle-unit;
-    background: linear-gradient($blue, $purple);
+    background: linear-gradient($c2, $c1);
     animation: gradient-fade-alt 6s ease-in-out 3s infinite alternate;
   }
 
@@ -114,25 +120,26 @@ h2 {
 
     &:before {
       $circle-unit: 13em;
-      z-index: 1;
+      z-index: 0;
       top: -3em;
       right: -3em;
       width: $circle-unit;
       height: $circle-unit;
       opacity: 0.7;
       border-radius: $circle-unit;
-      background: linear-gradient($ltblue, $purple);
+      background: linear-gradient($c3, $c1);
       animation: rotation 7s linear infinite;
+
     }
 
     &:after {
       $circle-unit: 20em;
-      z-index: 1;
+      z-index: 0;
       bottom: -#{$circle-unit};
       width: $circle-unit;
       height: $circle-unit;
       border-radius: $circle-unit;
-      background: linear-gradient($magenta, $purple);
+      background: linear-gradient($c4, $c1);
       animation: rotation 7s linear infinite;
     }
   }
@@ -163,7 +170,9 @@ h2 {
     height: $circle-unit;
     width: $circle-unit;
     border-radius: $circle-unit;
-    background: linear-gradient($ltblue, $blue);
+    background: linear-gradient($c3, $c2);
+    z-index: 0;
+    position: relative;
   }
 }
 
