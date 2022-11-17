@@ -1,6 +1,6 @@
 <h1 class="display-5 text-center">{{ survey.surveyName }}</h1>
 
-<form novalidate #form="" (ngSubmit)="save(form)">
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
@@ -36,29 +36,29 @@
             </div>
             <br />
         </div>
-        <div *ngIf="question.questionType == 'select'">
-            <div class="container px-5">
-                <p>Question:</p>
-                <p>{{question.value}}</p>
-                <div class="row" *ngFor="let option of question.options">
-                    <div class="col-1">
-                        <input type="radio" name="radioBtn" id="radioBtn" />
-                    </div>
-                    <div class="col-4">
-                        <input
-                            class="form-control"
-                            [(ngModel)]="option.value"
-                            [ngModelOptions]="{ standalone: true }"
-                        />
-                    </div>
-                    <div class="col-1">
-                
-                    </div>
-                </div>
-            </div>
-          
+        <br />
+      </div>
+      <div *ngIf="question.questionType == 'dropdown'">
+        <div class="container px-5">
+          <p>Question:</p>
+          <p>{{ question.value }}</p>
+          <select name="responses2" [(ngModel)]="question.temp">
+            <option *ngFor="let option of question.options">
+              {{ option.value }}
+            </option>
+          </select>
         </div>
-
+      </div>
+      <div *ngIf="question.questionType == 'select'">
+        <div class="container px-5">
+          <p>Question:</p>
+          <p>{{ question.value }}</p>
+          <div *ngFor="let option of question.options">
+            <input type="radio" name={{question.value}} value={{option.value}} [(ngModel)]="question.temp" (ngModelChange)="question.temp=(option.value)"/>
+            <label for="question.value">{{ option.value }}</label>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="d-flex flex-row-reverse pb-5">
