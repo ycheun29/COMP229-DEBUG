@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/model/auth.service';
 import { Survey } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 
@@ -11,7 +12,11 @@ import { SurveyRepository } from 'src/app/model/survey.repository';
 export class ViewAllSurveyComponent {
   public selectedCreator = null;
 
-  constructor(private repository: SurveyRepository, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private repository: SurveyRepository,
+    private router: Router
+  ) {}
 
   get surveys(): Survey[] {
     return this.repository.getAllSurveys();
@@ -21,7 +26,11 @@ export class ViewAllSurveyComponent {
     return this.repository.getCreators();
   }
 
-answerSurvey(id: number): void {
+  answerSurvey(id: number): void {
     this.router.navigateByUrl('/answer-survey/' + id);
+  }
+
+  isLoggedIn(): boolean {
+    return this.authService.authenticated;
   }
 }
