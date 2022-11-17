@@ -1,6 +1,6 @@
 <h1 class="display-5 text-center">{{ survey.surveyName }}</h1>
 
-<form novalidate #form="" (ngSubmit)="save(form)">
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
@@ -32,7 +32,7 @@
         </div>
         <br />
       </div>
-      <div *ngIf="question.questionType == 'select'">
+      <div *ngIf="question.questionType == 'dropdown'">
         <div class="container px-5">
           <p>Question:</p>
           <p>{{ question.value }}</p>
@@ -41,6 +41,16 @@
               {{ option.value }}
             </option>
           </select>
+        </div>
+      </div>
+      <div *ngIf="question.questionType == 'select'">
+        <div class="container px-5">
+          <p>Question:</p>
+          <p>{{ question.value }}</p>
+          <div *ngFor="let option of question.options">
+            <input type="radio" name="question.value" value={{option.value}} [(ngModel)]="question.temp" (ngModelChange)="question.temp=(option.value)"/>
+            <label for="question.value">{{ option.value }}</label>
+          </div>
         </div>
       </div>
     </div>

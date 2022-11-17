@@ -2,7 +2,7 @@ import { Question } from './../../model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { NgForm } from '@angular/forms';
 import { Survey, Response } from 'src/app/model/survey.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AnswerSurveyComponent implements OnInit {
   survey: Survey = new Survey();
-
+  @Input() value: string;
+  @Input() defaultChoice: string = 'hi';
   constructor(
     private repository: SurveyRepository,
     private router: Router,
@@ -47,7 +48,7 @@ export class AnswerSurveyComponent implements OnInit {
     if (this.survey.questions.length > 0)
       id = Math.max(...this.survey.questions.map((k) => k._id)) + 1;
     this.survey.questions.push(
-      new Question(id, 'text', 'New question ' + id, [])
+      new Question(id, 'text', 'New question ' + id, "")
     );
   }
   onSubmit(): void {
@@ -58,4 +59,9 @@ export class AnswerSurveyComponent implements OnInit {
     });
     this.repository.saveSurvey(this.survey);
   }
+  @Output() valueChosen: EventEmitter<any> = new EventEmitter();
+
+  choose(value: string) {
+    this.valueChosen.emit(value);
+}
 }
