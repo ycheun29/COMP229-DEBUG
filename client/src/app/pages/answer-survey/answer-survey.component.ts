@@ -12,7 +12,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AnswerSurveyComponent implements OnInit {
   survey: Survey = new Survey();
-
   constructor(
     private repository: SurveyRepository,
     private router: Router,
@@ -28,7 +27,9 @@ export class AnswerSurveyComponent implements OnInit {
     console.log(this.survey);
   }
 
-  onSubmit(form: NgForm): void {
+  save(form: NgForm): void {}
+
+  onSubmit(): void {
     this.survey.questions.forEach(function (question) {
       var response = new Response();
       response.value = question.temp;
@@ -36,6 +37,5 @@ export class AnswerSurveyComponent implements OnInit {
     });
     this.repository.saveSurvey(this.survey);
     this.router.navigateByUrl('/view-survey');
-    console.log('abcd');
   }
 }

@@ -1,6 +1,6 @@
 <h1 class="display-5 text-center">{{ survey.surveyName }}</h1>
 
-<form novalidate #form="ngForm" (ngSubmit)="onSubmit(form)">
+<form novalidate #form="ngForm" (ngSubmit)="save(form)">
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
@@ -12,7 +12,6 @@
         <p>{{ survey.description }}</p>
       </div>
     </div>
-
     <div
       class="callout callout-primary"
       *ngFor="let question of survey.questions"
@@ -27,12 +26,11 @@
             class="form-control"
             id="responses"
             name="responses"
-            [(ngModel)]="responses.responseDetails.value"
+            [(ngModel)]="question.temp"
           />
         </div>
         <br />
       </div>
-      <br />
       <div *ngIf="question.questionType == 'dropdown'">
         <div class="container px-5">
           <p>Question:</p>
@@ -61,9 +59,10 @@
         </div>
       </div>
     </div>
-
     <div class="d-flex flex-row-reverse pb-5">
-      <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+      <button class="btn btn-lg btn-primary" (click)="onSubmit()">
+        Submit
+      </button>
     </div>
   </div>
 </form>
