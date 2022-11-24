@@ -16,7 +16,7 @@
           <td class="col-3">{{ survey.creator }}</td>
           <td class="col-3">{{ survey.status }}</td>
           <td class="col-1">
-            <button class="btn btn-sm m-1">
+            <button class="btn btn-sm m-1" (click)="resultSurvey(survey._id)">
               <i class="fas f-2xl fa-chart-pie text-primary"></i>
             </button>
           </td>

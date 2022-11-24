@@ -40,4 +40,8 @@ export class ViewMySurveyComponent {
     // const index = this.repository.getAllSurveys().findIndex((l) => l._id == id);
     // this.repository.getAllSurveys().splice(index, 1);
   }
+
+  resultSurvey(id: number): void {
+    this.router.navigateByUrl('/result-survey/' + id);
+  }
 }
