@@ -24,7 +24,8 @@ export class RestDataSource {
   };
   constructor(private http: HttpClient, private jwtService: JwtHelperService) {
     this.user = new User();
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api`;
+    //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api`;
+    this.baseUrl = `https://comp229-f22-debug-backend.netlify.app/.netlify/functions/api/`;
   }
 
   getSurveys(): Observable<Survey[]> {
