@@ -7,15 +7,18 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ViewMySurveyComponent } from './view-my-survey/view-my-survey.component';
 import { ViewAllSurveyComponent } from './view-all-survey/view-all-survey.component';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from '../partials/barchart/barchart';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, ChartsModule],
   declarations: [
     BasePageComponent,
     FooterComponent,
     HeaderComponent,
     ViewMySurveyComponent,
     ViewAllSurveyComponent,
+    BarChartComponent,
   ],
   exports: [
     BasePageComponent,
@@ -23,6 +26,7 @@ import { ViewAllSurveyComponent } from './view-all-survey/view-all-survey.compon
     HeaderComponent,
     ViewMySurveyComponent,
     ViewAllSurveyComponent,
+    BarChartComponent,
   ],
 })
 export class PartialsModule {}

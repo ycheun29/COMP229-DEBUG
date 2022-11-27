@@ -18,8 +18,8 @@
     margin-top: -5px;
   }
 }
-@each $name, $color in (default, #777), (primary, #D98A60), (success, #33BA79),
-  (danger, #DC7878), (warning, #E5E174), (info, #64B5FF), (bdc, #29527a)
+@each $name, $color in (default, #777), (primary, #d98a60), (success, #33ba79),
+  (danger, #dc7878), (warning, #e5e174), (info, #64b5ff), (bdc, #29527a)
 {
   .callout-#{$name} {
     border-left-color: $color;
@@ -60,10 +60,15 @@ $c4: #361a22;
   z-index: 1000;
 }
 
-h1 {
+.homeTitle {
   font-size: 3em;
   margin-bottom: 0.2em;
   color: #fff;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.2em;
 }
 
 h2 {
@@ -129,7 +134,6 @@ h2 {
       border-radius: $circle-unit;
       background: linear-gradient($c3, $c1);
       animation: rotation 7s linear infinite;
-
     }
 
     &:after {

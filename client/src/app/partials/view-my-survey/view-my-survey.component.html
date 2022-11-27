@@ -10,37 +10,23 @@
           <th class="col-3"></th>
         </tr>
         <tr *ngFor="let survey of surveys">
-          <td class="col-4 align-middle">{{ survey.surveyName }}</td>
-          <td class="col-3 align-middle">{{ survey.creator }}</td>
-          <td class="col-3 align-middle">{{ survey.status }}</td>
-          <td class="col-3 align-middle">
-            <div>
-              <ul class="list-inline">
-                <li class="list-inline-item">
-                  <button class="btn btn-sm m-1">
-                    <i class="fas f-2xl fa-chart-pie text-primary"></i>
-                  </button>
-                </li>
-
-                <li class="list-inline-item">
-                  <button
-                    class="btn btn-sm m-1"
-                    (click)="editSurvey(survey._id)"
-                  >
-                    <i class="fas f-2xl fa-pen text-info"></i>
-                  </button>
-                </li>
-                
-                <li class="list-inline-item">
-                  <button
-                    class="btn btn-sm m-1"
-                    (click)="deleteSurvey(survey._id)"
-                  >
-                    <i class="fa f-2xl fa-trash text-danger"></i>
-                  </button>
-                </li>
-              </ul>
-            </div>
+          <td class="col-7">{{ survey.surveyName }}</td>
+          <td class="col-3">{{ survey.creator }}</td>
+          <td class="col-3">{{ survey.status }}</td>
+          <td class="col-1">
+            <button class="btn btn-sm m-1" (click)="resultSurvey(survey._id)">
+              <i class="fas f-2xl fa-chart-pie text-primary"></i>
+            </button>
+          </td>
+          <td class="col-1">
+            <button class="btn btn-sm m-1" (click)="editSurvey(survey._id)">
+              <i class="fas f-2xl fa-pen text-info"></i>
+            </button>
+          </td>
+          <td class="col-1">
+            <button class="btn btn-sm m-1" (click)="deleteSurvey(survey._id)">
+              <i class="fa f-2xl fa-trash text-danger"></i>
+            </button>
           </td>
         </tr>
       </table>

@@ -8,6 +8,7 @@ import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { ViewSurveyComponent } from './view-survey/view-survey.component';
 import { LoginComponent } from './login/login.component';
 import { AnswerSurveyComponent } from './answer-survey/answer-survey.component';
+import { ResultPageComponent } from './result-page/result-page.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, PartialsModule],
@@ -17,6 +18,7 @@ import { AnswerSurveyComponent } from './answer-survey/answer-survey.component';
     ViewSurveyComponent,
     AnswerSurveyComponent,
     LoginComponent,
+    ResultPageComponent,
     RegisterComponent,
   ],
   exports: [HomeComponent, PartialsModule],
