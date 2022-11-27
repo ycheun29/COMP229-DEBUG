@@ -36,6 +36,10 @@
           <div class="container px-5 py-4">
             <h6 class="font-weight-bold">Question {{ i + 1 }}:</h6>
             <p>{{ question.value }}</p>
+
+            <div class="container px-5 py-4">
+              <barchart [data]="question.responses"></barchart>
+            </div>
           </div>
         </div>
       </div>

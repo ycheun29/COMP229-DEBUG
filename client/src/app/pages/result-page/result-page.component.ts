@@ -8,19 +8,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-result-page',
   templateUrl: './result-page.component.html',
-  styleUrls: ['./result-page.component.css']
+  styleUrls: ['./result-page.component.css'],
 })
 export class ResultPageComponent implements OnInit {
-
   survey: Survey = new Survey();
   constructor(
     private repository: SurveyRepository,
     private router: Router,
     activeRoute: ActivatedRoute
-  ) { 
+  ) {
     Object.assign(
-    this.survey,
-    repository.getSurvey(activeRoute.snapshot.params.id))
+      this.survey,
+      repository.getSurvey(activeRoute.snapshot.params.id)
+    );
   }
 
   ngOnInit(): void {
@@ -31,4 +31,3 @@ export class ResultPageComponent implements OnInit {
     this.router.navigateByUrl('/view-survey');
   }
 }
-
