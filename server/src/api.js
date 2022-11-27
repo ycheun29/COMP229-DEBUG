@@ -114,6 +114,8 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
 passport.use(strategy);
 
 app.use("/.netlify/functions/api", surveysRouter);
+app.use("/.netlify/functions/api/user", userRouter);
+app.use("/.netlify/functions/api/survey-list", surveysRouter);
 // routing
 
 //app.use("/api/user", userRouter);
