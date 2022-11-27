@@ -37,6 +37,7 @@
         <div class="container px-5">
           <p class="font-weight-bold">Question {{ i + 1 }}:</p>
           <p>{{ question.value }}</p>
+          <p class="font-weight-bold">Answer:</p>
           <select name="responses2" [(ngModel)]="question.temp">
             <option *ngFor="let option of question.options">
               {{ option.value }}
@@ -48,6 +49,7 @@
         <div class="container px-5">
           <p class="font-weight-bold">Question {{ i + 1 }}:</p>
           <p>{{ question.value }}</p>
+          <p class="font-weight-bold">Answer:</p>
           <div *ngFor="let option of question.options">
             <input
               type="radio"
