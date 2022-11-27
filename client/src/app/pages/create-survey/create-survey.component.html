@@ -146,12 +146,17 @@
     </div>
   </div>
   <div class="d-flex flex-row-reverse pb-5">
-    <button
-      [disabled]="userForm.form.invalid"
-      class="btn btn-lg btn-primary"
-      (click)="onSubmit()"
-    >
-      {{ editing ? "Edit" : "Create" }}
-    </button>
+    <div class="row">
+      <button
+        [disabled]="userForm.form.invalid"
+        class="col-10 btn btn-lg btn-primary"
+        (click)="onSubmit()"
+      >
+        {{ editing ? "Edit" : "Create" }}
+      </button>
+      <button class="mt-2 col-10 btn btn-lg btn-secondary" (click)="back()">
+        Back
+      </button>
+    </div>
   </div>
 </form>

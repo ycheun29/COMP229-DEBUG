@@ -30,12 +30,20 @@ export class AnswerSurveyComponent implements OnInit {
   save(form: NgForm): void {}
 
   onSubmit(): void {
-    this.survey.questions.forEach(function (question) {
-      var response = new Response();
-      response.value = question.temp;
-      question.responses.push(response);
-    });
-    this.repository.saveSurvey(this.survey);
-    this.router.navigateByUrl('/view-survey');
+    if (confirm('Are you sure?')) {
+      this.survey.questions.forEach(function (question) {
+        var response = new Response();
+        response.value = question.temp;
+        question.responses.push(response);
+      });
+      this.repository.saveSurvey(this.survey);
+      this.router.navigateByUrl('/view-survey');
+    }
+  }
+
+  back(): void {
+    if (confirm('Are you sure?')) {
+      this.router.navigateByUrl('/view-survey');
+    }
   }
 }

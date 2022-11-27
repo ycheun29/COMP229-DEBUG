@@ -40,9 +40,11 @@ export class CreateSurveyComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    this.submitted = true;
-    this.repository.saveSurvey(this.survey);
-    this.router.navigateByUrl('/view-survey');
+    if (confirm('Are you sure?')) {
+      this.submitted = true;
+      this.repository.saveSurvey(this.survey);
+      this.router.navigateByUrl('/view-survey');
+    }
   }
 
   removeOption(question: Question, option: Option): void {
@@ -65,5 +67,11 @@ export class CreateSurveyComponent implements OnInit {
     question.questionType = 'text';
     question.options = [];
     this.survey.questions.push(question);
+  }
+
+  back(): void {
+    if (confirm('Are you sure?')) {
+      this.router.navigateByUrl('/view-survey');
+    }
   }
 }
