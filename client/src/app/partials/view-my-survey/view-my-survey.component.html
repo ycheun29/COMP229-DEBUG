@@ -2,7 +2,16 @@
   <div class="callout callout-primary">
     <div class="card-header text-center bg-white"><h5>My Survey</h5></div>
     <div class="card-body">
-      <table class="table table-hover table-borderless align-middle">
+      <div *ngIf="surveys.length == 0" class="container text-center bg-white">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+
+      <table
+        *ngIf="surveys.length > 0"
+        class="table table-hover table-borderless align-middle"
+      >
         <tr>
           <th class="col-4">Survey</th>
           <th class="col-3">Creator</th>
