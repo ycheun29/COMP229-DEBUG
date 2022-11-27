@@ -4,24 +4,24 @@
   <div class="container mb-5">
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
-        <h6>Created Date:</h6>
+        <h6 class="font-weight-bold">Created Date:</h6>
         <p>{{ survey.createdDate }}</p>
-        <h6>Created by:</h6>
+        <h6 class="font-weight-bold">Created by:</h6>
         <p>{{ survey.creator }}</p>
-        <h6>Description:</h6>
+        <h6 class="font-weight-bold">Description:</h6>
         <p>{{ survey.description }}</p>
       </div>
     </div>
     <div
       class="callout callout-primary"
-      *ngFor="let question of survey.questions"
+      *ngFor="let question of survey.questions; index as i"
     >
       <div *ngIf="question.questionType == 'text'">
         <div class="d-flex flex-row-reverse"></div>
         <div class="container px-5">
-          <p>Question:</p>
+          <p class="font-weight-bold">Question {{ i + 1 }}:</p>
           <p>{{ question.value }}</p>
-          <p>Answer</p>
+          <p class="font-weight-bold">Answer:</p>
           <input
             class="form-control"
             id="responses"
@@ -33,7 +33,7 @@
       </div>
       <div *ngIf="question.questionType == 'dropdown'">
         <div class="container px-5">
-          <p>Question:</p>
+          <p class="font-weight-bold">Question {{ i + 1 }}:</p>
           <p>{{ question.value }}</p>
           <select name="responses2" [(ngModel)]="question.temp">
             <option *ngFor="let option of question.options">
@@ -44,7 +44,7 @@
       </div>
       <div *ngIf="question.questionType == 'select'">
         <div class="container px-5">
-          <p>Question:</p>
+          <p class="font-weight-bold">Question {{ i + 1 }}:</p>
           <p>{{ question.value }}</p>
           <div *ngFor="let option of question.options">
             <input
@@ -54,7 +54,7 @@
               [(ngModel)]="question.temp"
               (ngModelChange)="question.temp = option.value"
             />
-            <label for="question.value">{{ option.value }}</label>
+            <label class="mx-1" for="question.value">{{ option.value }}</label>
           </div>
         </div>
       </div>

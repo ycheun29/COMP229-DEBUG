@@ -31,7 +31,7 @@
             </ng-container>
             <ng-template #showData>
               <div *ngFor="let response of question.responses; index as j">
-                <h7 class="font-weight-bold">Response {{ j + 1 }}:</h7>
+                <h7 class="mt-2 font-weight-bold">Response {{ j + 1 }}:</h7>
                 <P>{{ response.value }}</P>
               </div>
             </ng-template>

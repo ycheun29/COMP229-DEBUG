@@ -14,7 +14,7 @@
   {{ userForm.form.valid }} -->
   <div class="callout callout-primary px-5 py-4">
     <div class="form-group">
-      <label for="surveyName">Survey Name:</label>
+      <label for="surveyName" class="font-weight-bold">Survey Name:</label>
       <input
         type="text"
         required
@@ -31,7 +31,7 @@
       >
     </div>
     <div class="form-group">
-      <label for="description">Description:</label>
+      <label for="description" class="font-weight-bold">Description:</label>
       <input
         type="text"
         required
@@ -51,7 +51,7 @@
 
   <div
     class="callout callout-primary"
-    *ngFor="let question of survey.questions"
+    *ngFor="let question of survey.questions; index as i"
   >
     <div class="d-flex flex-row-reverse">
       <button class="btn btn-sm m-1" (click)="removeQuestion(question._id)">
@@ -60,7 +60,9 @@
     </div>
     <div class="container px-5">
       <div class="form-group">
-        <label for="questionType">Question Type:</label>
+        <label for="questionType" class="font-weight-bold"
+          >Question Type:</label
+        >
         <select
           required
           #questionType="ngModel"
@@ -80,7 +82,9 @@
       </div>
 
       <div class="form-group">
-        <label for="question">Question:</label>
+        <label for="question" class="font-weight-bold"
+          >Question {{ i + 1 }}:</label
+        >
         <input
           type="text"
           required
