@@ -23,10 +23,6 @@ export class ViewMySurveyComponent {
     return this.repository.getSurveys(this.selectedCreator);
   }
 
-  get creators(): string[] {
-    return this.repository.getCreators();
-  }
-
   editSurvey(id: number): void {
     this.router.navigateByUrl('/survey/edit/' + id);
   }

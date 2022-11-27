@@ -6,18 +6,11 @@ import { StaticDataSource } from './static.datasource';
 @Injectable()
 export class SurveyRepository {
   private surveys: Survey[] = [];
-  private creators: string[] = [];
   private loaded = false;
-  // constructor(private dataSource: StaticDataSource) {
-  //   dataSource.getSurveys().subscribe((data) => {
-  //     this.surveys = data;
-  //     this.creators = data.map((b) => b.creator);
-  //   });
-  // }
+
   constructor(private dataSource: RestDataSource) {
     this.dataSource.getSurveys().subscribe((data) => {
       this.surveys = data;
-      this.creators = data.map((b) => b.creator);
     });
   }
 
@@ -25,7 +18,6 @@ export class SurveyRepository {
     this.loaded = true;
     this.dataSource.getSurveys().subscribe((data) => {
       this.surveys = data;
-      this.creators = data.map((b) => b.creator);
     });
   }
 
@@ -42,10 +34,6 @@ export class SurveyRepository {
 
   getSurvey(id: number): Survey {
     return this.surveys.find((b) => b._id == id);
-  }
-
-  getCreators(): string[] {
-    return this.creators;
   }
 
   deleteSurvey(id: number): void {

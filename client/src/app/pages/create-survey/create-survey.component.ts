@@ -70,8 +70,6 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   back(): void {
-    if (confirm('Are you sure?')) {
-      this.router.navigateByUrl('/view-survey');
-    }
+    this.router.navigateByUrl('/view-survey');
   }
 }

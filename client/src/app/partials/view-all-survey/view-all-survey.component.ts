@@ -22,10 +22,6 @@ export class ViewAllSurveyComponent {
     return this.repository.getAllSurveys();
   }
 
-  get creators(): string[] {
-    return this.repository.getCreators();
-  }
-
   answerSurvey(id: number): void {
     this.router.navigateByUrl('/answer-survey/' + id);
   }
