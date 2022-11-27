@@ -113,12 +113,14 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
 
 passport.use(strategy);
 
+app.use("/.netlify/functions/api", surveysRouter);
 // routing
-app.use("/api/user", userRouter);
-app.use("/api/survey-list", surveysRouter);
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-});
+
+//app.use("/api/user", userRouter);
+//app.use("/api/survey-list", surveysRouter);
+//app.get("*", (req, res) => {
+// res.sendFile(path.join(__dirname, "../public/index.html"));
+//});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
