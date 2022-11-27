@@ -5,7 +5,9 @@
     <div class="callout callout-primary">
       <div class="container px-5 py-4">
         <h6 class="font-weight-bold">Created Date:</h6>
-        <p>{{ survey.createdDate }}</p>
+        <p>
+          {{ survey.createdDate | date: "MM/dd/yyyy  HH:mm:ss  Z" }}
+        </p>
         <h6 class="font-weight-bold">Created by:</h6>
         <p>{{ survey.creator }}</p>
         <h6 class="font-weight-bold">Description:</h6>
