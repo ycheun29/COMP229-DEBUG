@@ -38,7 +38,10 @@
             <p>{{ question.value }}</p>
 
             <div class="container px-5 py-4">
-              <barchart [data]="question.responses"></barchart>
+              <barchart
+                [responses]="question.responses"
+                [options]="question.options"
+              ></barchart>
             </div>
           </div>
         </div>

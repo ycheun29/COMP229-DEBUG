@@ -6,28 +6,37 @@ import { Component, Input } from '@angular/core';
 })
 export class BarChartComponent {
   @Input()
-  data: any;
+  responses: any;
+
+  @Input()
+  options: any;
 
   ngOnInit() {
     console.log('ngOnInit');
-    // console.log(this.data);
 
-    const countBy = (arr, fn) =>
-      arr
-        .map(typeof fn === 'function' ? fn : (val) => val[fn])
-        .reduce((acc, val) => {
-          acc[val] = (acc[val] || 0) + 1;
-          return acc;
-        }, {});
+    var temp1 = [];
 
-    let groupData = countBy(this.data, (x) => x.value);
-    const map1 = new Map(Object.entries(groupData));
-    this.mbarChartLabels = Array.from(map1.keys());
+    for (const option of this.options) {
+      temp1.push(option.value);
+    }
 
-    var countArr = Array.from(map1.values());
-    this.barChartData = [{ data: countArr, label: 'Count' }];
+    this.mbarChartLabels = temp1;
 
-    var max = Math.max.apply(null, countArr);
+    var temp2 = [];
+    for (const response of this.responses) {
+      temp2[response.value] =
+        temp2[response.value] == null ? 1 : temp2[response.value] + 1;
+    }
+
+    var temp3 = [];
+
+    for (let i = 0; i < temp1.length; i++) {
+      temp3[i] = temp2[temp1[i]] == null ? 0 : temp2[temp1[i]];
+    }
+
+    this.barChartData = [{ data: temp3, label: 'Count' }];
+
+    var max = Math.max.apply(null, temp3);
 
     this.barChartOptions = {
       scaleShowVerticalLines: false,
@@ -84,20 +93,12 @@ export class BarChartComponent {
 
   public barChartColors: Array<any> = [
     {
-      backgroundColor: 'rgba(105,159,177,0.2)',
-      borderColor: 'rgba(105,159,177,1)',
-      pointBackgroundColor: 'rgba(105,159,177,1)',
+      backgroundColor: '#699fb1',
+      borderColor: '#699fb1',
+      pointBackgroundColor: '#699fb1',
       pointBorderColor: '#fafafa',
       pointHoverBackgroundColor: '#fafafa',
-      pointHoverBorderColor: 'rgba(105,159,177)',
-    },
-    {
-      backgroundColor: 'rgba(77,20,96,0.3)',
-      borderColor: 'rgba(77,20,96,1)',
-      pointBackgroundColor: 'rgba(77,20,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,20,96,1)',
+      pointHoverBorderColor: '#699fb1',
     },
   ];
 
@@ -109,20 +110,4 @@ export class BarChartComponent {
   public chartHovered(e: any): void {
     //console.log(e);
   }
-  /*
-  public randomize(): void {
-    let data = [
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.round(Math.random() * 100),
-      Math.random() * 100,
-      Math.round(Math.random() * 100),
-      Math.random() * 100,
-      Math.round(Math.random() * 100),
-    ];
-    let clone = JSON.parse(JSON.stringify(this.barChartData));
-    clone[0].data = data;
-    this.barChartData = clone;
-  }
-  */
 }
