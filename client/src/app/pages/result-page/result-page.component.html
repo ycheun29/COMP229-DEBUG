@@ -21,10 +21,23 @@
           <div class="container px-5 py-4">
             <h6 class="font-weight-bold">Question {{ i + 1 }}:</h6>
             <p>{{ question.value }}</p>
-            <div *ngFor="let response of question.responses; index as j">
-              <h7 class="font-weight-bold">Response {{ j + 1 }}:</h7>
-              <P>{{ response.value }}</P>
-            </div>
+            <ng-container
+              *ngIf="
+                question.responses.length > 0;
+                then showData;
+                else hideData
+              "
+            >
+            </ng-container>
+            <ng-template #showData>
+              <div *ngFor="let response of question.responses; index as j">
+                <h7 class="font-weight-bold">Response {{ j + 1 }}:</h7>
+                <P>{{ response.value }}</P>
+              </div>
+            </ng-template>
+            <ng-template #hideData>
+              <h2>There is no response yet!</h2>
+            </ng-template>
           </div>
         </div>
       </div>
@@ -37,18 +50,31 @@
             <h6 class="font-weight-bold">Question {{ i + 1 }}:</h6>
             <p>{{ question.value }}</p>
 
-            <div class="container px-5 py-4">
-              <barchart
-                [responses]="question.responses"
-                [options]="question.options"
-              ></barchart>
-            </div>
+            <ng-container
+              *ngIf="
+                question.responses.length > 0;
+                then showData;
+                else hideData
+              "
+            >
+            </ng-container>
+            <ng-template #showData>
+              <div class="container px-5 py-4">
+                <barchart
+                  [responses]="question.responses"
+                  [options]="question.options"
+                ></barchart>
+              </div>
+            </ng-template>
+            <ng-template #hideData>
+              <h2>There is no response yet!</h2>
+            </ng-template>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="d-flex flex-row-reverse pb-5">
-    <button class="btn btn-lg btn-primary" (click)="back()">Back</button>
+    <button class="btn btn-lg btn-secondary" (click)="back()">Back</button>
   </div>
 </form>
