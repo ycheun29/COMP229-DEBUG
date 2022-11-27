@@ -30,4 +30,14 @@ export class ResultPageComponent implements OnInit {
   back(): void {
     this.router.navigateByUrl('/view-survey');
   }
+
+  clearAllResponse(): void {
+    if (confirm('Are you sure?')) {
+      for (let question of this.survey.questions) {
+        question.responses = [];
+      }
+      this.repository.saveSurvey(this.survey);
+      this.router.navigateByUrl('/view-survey');
+    }
+  }
 }

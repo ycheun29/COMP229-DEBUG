@@ -75,6 +75,16 @@
     </div>
   </div>
   <div class="d-flex flex-row-reverse pb-5">
-    <button class="btn btn-lg btn-secondary" (click)="back()">Back</button>
+    <div class="row">
+      <button class="col-10 btn btn-lg btn-secondary" (click)="back()">
+        Back
+      </button>
+      <button
+        class="mt-2 col-10 btn btn-lg btn-danger"
+        (click)="clearAllResponse()"
+      >
+        Clear All Response
+      </button>
+    </div>
   </div>
 </form>
