@@ -6,7 +6,7 @@ import { Survey } from './survey.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 const PROTOCOL = 'http';
-const PORT = 3500;
+const PORT = 9000;
 
 @Injectable()
 export class RestDataSource {
@@ -24,7 +24,7 @@ export class RestDataSource {
   };
   constructor(private http: HttpClient, private jwtService: JwtHelperService) {
     this.user = new User();
-    //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/api`;
+    //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/.netlify/functions/api`;
     this.baseUrl = `https://comp229-f22-debug-backend.netlify.app/.netlify/functions/api/`;
   }
 
