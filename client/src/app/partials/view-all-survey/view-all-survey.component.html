@@ -17,16 +17,18 @@
           <td class="col-3">{{ survey.status }}</td>
           <td class="col-1"></td>
           <td class="col-1">
-            <button
-              *ngIf="isLoggedIn()"
-              class="btn btn-sm m-1"
-              (click)="answerSurvey(survey._id)"
-            >
-              <i
-                class="fas fa-arrow-circle-right fa-fw f-2x"
-                style="color: #64b5ff"
-              ></i>
-            </button>
+            <div [hidden]="survey.status == 'Closed'">
+              <button
+                *ngIf="isLoggedIn()"
+                class="btn btn-sm m-1"
+                (click)="answerSurvey(survey._id)"
+              >
+                <i
+                  class="fas fa-arrow-circle-right fa-fw f-2x"
+                  style="color: #64b5ff"
+                ></i>
+              </button>
+            </div>
           </td>
           <td class="col-1"></td>
         </tr>
