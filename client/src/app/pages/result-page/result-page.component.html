@@ -1,52 +1,47 @@
 <h1 class="display-5 text-center">{{ survey.surveyName }}</h1>
 
-<form>
-    <div class="container mb-5">
-      <div class="callout callout-primary">
-        <div class="container px-5 py-4">
-          <h6>Created Date:</h6>
-          <p>{{ survey.createdDate }}</p>
-          <h6>Created by:</h6>
-          <p>{{ survey.creator }}</p>
-          <h6>Description:</h6>
-          <p>{{ survey.description }}</p>
+<form class="container mb-5">
+  <div class="container mb-5">
+    <div class="callout callout-primary">
+      <div class="container px-5 py-4">
+        <h6 class="font-weight-bold">Created Date:</h6>
+        <p>{{ survey.createdDate }}</p>
+        <h6 class="font-weight-bold">Created by:</h6>
+        <p>{{ survey.creator }}</p>
+        <h6 class="font-weight-bold">Description:</h6>
+        <p>{{ survey.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let question of survey.questions; index as i">
+    <div *ngIf="question.questionType == 'text'">
+      <div class="container mb-5">
+        <div class="callout callout-primary">
+          <div class="container px-5 py-4">
+            <h6 class="font-weight-bold">Question {{ i + 1 }}:</h6>
+            <p>{{ question.value }}</p>
+            <div *ngFor="let response of question.responses; index as j">
+              <h7 class="font-weight-bold">Response {{ j + 1 }}:</h7>
+              <P>{{ response.value }}</P>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div
-      *ngFor="let question of survey.questions"
-    >
-    <div *ngIf="question.questionType == 'text'">
-        <div class="container mb-5">
+    <div *ngIf="question.questionType == 'select'">
+      <div class="container mb-5">
         <div class="callout callout-primary">
           <div class="container px-5 py-4">
-            <h6>Question:</h6>
-            <p>{{question.value}}</p>
-            <div *ngFor = "let response of question.responses"
-            >
-            <h7>Response:</h7>
-            <P>{{response.value}}</P>
-    
-            </div>
+            <h6 class="font-weight-bold">Question {{ i + 1 }}:</h6>
+            <p>{{ question.value }}</p>
           </div>
+        </div>
       </div>
     </div>
   </div>
-
-<div *ngIf="question.questionType == 'select'">
-  <div class="container mb-5">
-  <div class="callout callout-primary">
-    <div class="container px-5 py-4">
-      <h6>Question:</h6>
-      <p>{{question.value}}</p>
-
-    </div>
+  <div class="d-flex flex-row-reverse pb-5">
+    <button class="btn btn-lg btn-primary" (click)="back()">Back</button>
   </div>
-</div>
-</div>
-<div class="d-flex flex-row-reverse pb-5">
-    <button class="btn" (click)="back()">
-      Back
-    </button>
-  </div>
+</form>
