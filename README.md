@@ -16,4 +16,4 @@ Steps to start server
 
 1. cd server
 2. npm start
-3. Open broswer - http://localhost:3500/api/survey-list
+3. Open broswer - http://localhost:9000/.netlify/functions/api
